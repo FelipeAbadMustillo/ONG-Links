@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descPst: MyText
+  lugar: MyString
+  hora: 2019-06-17 11:33:37
+  ftPst: MyString
+  cantMin: 
+  cantMax: 
+  cantAct: 
+  published: 2019-06-17 11:33:37
+  full: false
+  postTime: 
+  expired: false
+
+two:
+  descPst: MyText
+  lugar: MyString
+  hora: 2019-06-17 11:33:37
+  ftPst: MyString
+  cantMin: 
+  cantMax: 
+  cantAct: 
+  published: 2019-06-17 11:33:37
+  full: false
+  postTime: 
+  expired: false

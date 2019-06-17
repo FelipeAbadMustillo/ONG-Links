@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombreOng: MyString
+  pwdOng: MyString
+  desc: MyText
+  sede: MyString
+  tel: 
+  contact: MyString
+  bnnr: MyString
+  ftOng: MyString
+  cantFlw: 
+  fund: 2019-06-17
+  rating: 1.5
+
+two:
+  nombreOng: MyString
+  pwdOng: MyString
+  desc: MyText
+  sede: MyString
+  tel: 
+  contact: MyString
+  bnnr: MyString
+  ftOng: MyString
+  cantFlw: 
+  fund: 2019-06-17
+  rating: 1.5
