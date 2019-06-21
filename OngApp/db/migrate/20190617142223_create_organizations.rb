@@ -5,11 +5,11 @@ class CreateOrganizations < ActiveRecord::Migration[5.1]
       t.string :pwdOng
       t.text :desc
       t.string :sede
-      t.int :tel
+      t.integer :tel
       t.string :contact
       t.string :bnnr
       t.string :ftOng
-      t.int :cantFlw
+      t.integer :cantFlw
       t.date :fund
       t.float :rating
 

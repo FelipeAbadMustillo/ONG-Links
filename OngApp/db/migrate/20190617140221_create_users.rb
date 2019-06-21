@@ -4,16 +4,16 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :nombreUsu
       t.string :apellidoUsu
       t.string :pwdUsu
-      t.int :edad
+      t.integer :edad
       t.string :gen
       t.string :localidadUsu
-      t.int :telUsu
+      t.integer :telUsu
       t.string :mail
       t.string :ocupacion
       t.string :ftUsu
-      t.int :lvl
-      t.int :exp
-      t.int :cantFlw
+      t.integer :lvl
+      t.integer :exp
+      t.integer :cantFlw
 
       t.timestamps
     end
