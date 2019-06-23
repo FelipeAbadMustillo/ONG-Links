@@ -3,9 +3,11 @@
 <%= form_for @user do |f| %>
   <%= f.text_field :nombreUsu, placeholder: "Nombre" %>
   <%= f.text_field :apellidoUsu, placeholder: "Apellido" %>>
-  <%= f.text_field :pwdUsu, placeholder: "Contraseña" %>
-  <%= f.text_field :edad, placeholder: "Edad" %>
+  <%= f.password_field :pwdUsu, placeholder: "Contraseña" %>
+  <%= f.number_field :edad, in: 13.0..100.0, step:1, placeholder: "Edad" %>
   <%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
-  <%= f.text_field :mail, placeholder: "Direccion de Mail" %>
+  <%= f.email_field :mail, placeholder: "Direccion de Mail" %>
+  <%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
+  <%= f.telephone_field :telUsu, placeholder: "Telefono" %>
   <%= f.sumbit "Registarse" %>
 <% end %>
