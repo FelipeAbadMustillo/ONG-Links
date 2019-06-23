@@ -1,0 +1,11 @@
+<h1> Registrar usuario </h1>
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :nombreUsu, placeholder: "Nombre" %>
+  <%= f.text_field :apellidoUsu, placeholder: "Apellido" %>>
+  <%= f.text_field :pwdUsu, placeholder: "Contraseña" %>
+  <%= f.text_field :edad, placeholder: "Edad" %>
+  <%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
+  <%= f.text_field :mail, placeholder: "Direccion de Mail" %>
+  <%= f.sumbit "Registarse" %>
+<% end %>

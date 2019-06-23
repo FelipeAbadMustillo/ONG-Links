@@ -1,0 +1,11 @@
+<% if @users.blank? %>
+  <h2> no existen usuarios en la base de datos todavia. </h2>
+<% else %>
+  <h1> Estos son los usuarios registrados </h1>
+  <ul>
+      <% @users.each do |user| %>
+        <li> <%= user.nombreUsu %> ,<%= user.apellidoUsu %> ,<%= user.edad %>
+      <% end %>
+  </ul>
+<% end %>
+<p> <%= link_to "Registrar usuario", {:action => 'new'}%> </p>
