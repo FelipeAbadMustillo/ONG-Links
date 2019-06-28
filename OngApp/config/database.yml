@@ -13,15 +13,15 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: Ong_Links124
-  host: localhost
-  port: 3333
+  username: egKltUOsRC
+  password: P2bM7FK823
+  host: remotemysql.com
+  port: 3306
   sslmode: prefer
 
 development:
   <<: *default
-  database: OngDB_dev
+  database: egKltUOsRC
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

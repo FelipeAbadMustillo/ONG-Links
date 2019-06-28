@@ -1,6 +1,6 @@
 <h1> Registrar usuario </h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @usuario, url: user_index_path do |f| %>
   <%= f.text_field :nombreUsu, placeholder: "Nombre" %>
   <%= f.text_field :apellidoUsu, placeholder: "Apellido" %>>
   <%= f.password_field :pwdUsu, placeholder: "Contraseña" %>
@@ -9,5 +9,5 @@
   <%= f.email_field :mail, placeholder: "Direccion de Mail" %>
   <%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
   <%= f.telephone_field :telUsu, placeholder: "Telefono" %>
-  <%= f.sumbit "Registarse" %>
+  <%= f.submit "Registarse" %>
 <% end %>

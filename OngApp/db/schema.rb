@@ -12,7 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20190619013348) do
 
-  create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
+  create_table "Posts_Tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.bigint "Post_id", null: false
+    t.bigint "Tag_id", null: false
+    t.index ["Post_id", "Tag_id"], name: "index_Posts_Tags_on_post_id_and_tag_id"
+    t.index ["Tag_id", "Post_id"], name: "index_Posts_Tags_on_tag_id_and_post_id"
+  end
+
+  create_table "Tags_Users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.bigint "Tag_id", null: false
+    t.bigint "User_id", null: false
+    t.index ["Tag_id", "User_id"], name: "index_Tags_Users_on_tag_id_and_user_id"
+    t.index ["User_id", "Tag_id"], name: "index_Tags_Users_on_user_id_and_tag_id"
+  end
+
+  create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "user_id"
     t.bigint "post_id"
     t.datetime "fechaEnlist"
@@ -22,7 +36,7 @@ ActiveRecord::Schema.define(version: 20190619013348) do
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
-  create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
+  create_table "follows", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "organization_id"
     t.bigint "user_id"
     t.datetime "fechaFlw"
@@ -32,7 +46,7 @@ ActiveRecord::Schema.define(version: 20190619013348) do
     t.index ["user_id"], name: "index_follows_on_user_id"
   end
 
-  create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
+  create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "nombreOng"
     t.string "pwdOng"
     t.text "desc"
@@ -48,7 +62,7 @@ ActiveRecord::Schema.define(version: 20190619013348) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "organization_id"
     t.text "descPst"
     t.string "lugar"
@@ -66,27 +80,13 @@ ActiveRecord::Schema.define(version: 20190619013348) do
     t.index ["organization_id"], name: "index_posts_on_organization_id"
   end
 
-  create_table "posts_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
-    t.bigint "Post_id", null: false
-    t.bigint "Tag_id", null: false
-    t.index ["Post_id", "Tag_id"], name: "index_Posts_Tags_on_post_id_and_tag_id"
-    t.index ["Tag_id", "Post_id"], name: "index_Posts_Tags_on_tag_id_and_post_id"
-  end
-
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "nombreTag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
-    t.bigint "Tag_id", null: false
-    t.bigint "User_id", null: false
-    t.index ["Tag_id", "User_id"], name: "index_Tags_Users_on_tag_id_and_user_id"
-    t.index ["User_id", "Tag_id"], name: "index_Tags_Users_on_user_id_and_tag_id"
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "nombreUsu"
     t.string "apellidoUsu"
     t.string "pwdUsu"
