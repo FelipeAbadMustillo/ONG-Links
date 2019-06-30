@@ -1,13 +1,56 @@
 <h1> Registrar usuario </h1>
 
 <%= form_for @usuario, url: user_index_path do |f| %>
-  <%= f.text_field :nombreUsu, placeholder: "Nombre" %>
-  <%= f.text_field :apellidoUsu, placeholder: "Apellido" %>>
-  <%= f.password_field :pwdUsu, placeholder: "Contraseña" %>
-  <%= f.number_field :edad, in: 13.0..100.0, step:1, placeholder: "Edad" %>
-  <%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
-  <%= f.email_field :mail, placeholder: "Direccion de Mail" %>
-  <%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
-  <%= f.telephone_field :telUsu, placeholder: "Telefono" %>
-  <%= f.submit "Registarse" %>
+
+  <li><%= f.text_field :nombreUsu, placeholder: "Nombre"%>
+  <% @usuario.errors[:nombreUsu].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.text_field :apellidoUsu, placeholder: "Apellido" %>
+  <% @usuario.errors[:apellidoUsu].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.password_field :pwdUsu, placeholder: "Contraseña" %>
+  <% @usuario.errors[:pwdUsu].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.number_field :edad,step:1, placeholder: "Edad" %>
+  <% @usuario.errors[:edad].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
+  <% @usuario.errors[:ocupacion].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.email_field :mail, placeholder: "Direccion de Mail" %>
+  <% @usuario.errors[:mail].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+
+  <li><%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
+  <% @usuario.errors[:localidadUsu].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+
+  <li><%= f.telephone_field :telUsu, placeholder: "Telefono" %>
+  <% @usuario.errors[:telUsu].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.submit "Registarse" %>
 <% end %>

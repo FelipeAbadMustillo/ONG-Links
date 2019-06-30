@@ -4,7 +4,7 @@
   <h1> Estos son los usuarios registrados </h1>
   <ul>
       <% @users.each do |user| %>
-        <li> <%= user.nombreUsu %> ,<%= user.apellidoUsu %> ,<%= user.edad %>
+        <li> <%= user.nombreUsu %> ,<%= user.apellidoUsu %> ,<%= user.edad %>, <%= user.cantFlw %>, <%= user.exp %>
       <% end %>
   </ul>
 <% end %>

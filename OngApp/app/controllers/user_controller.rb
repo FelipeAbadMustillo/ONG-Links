@@ -8,8 +8,10 @@ class UserController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
+    @usuario = User.new(user_params)
+    @usuario.exp=0
+    @usuario.cantFlw=0
+    if @usuario.save
       redirect_to :action=>'index'
     else
       render :action=>'new'
