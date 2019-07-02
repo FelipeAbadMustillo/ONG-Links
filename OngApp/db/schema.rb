@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190619013348) do
+ActiveRecord::Schema.define(version: 20190702220521) do
 
   create_table "Posts_Tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "Post_id", null: false
@@ -78,6 +78,22 @@ ActiveRecord::Schema.define(version: 20190619013348) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_posts_on_organization_id"
+  end
+
+  create_table "posts_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["post_id", "user_id"], name: "index_posts_users_on_post_id_and_user_id"
+  end
+
+  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.bigint "organization_id"
+    t.bigint "user_id"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_ratings_on_organization_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
   end
 
   create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
