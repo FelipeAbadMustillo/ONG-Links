@@ -5,14 +5,14 @@ class CreatePosts < ActiveRecord::Migration[5.1]
       t.text :descPst
       t.string :lugar
       t.datetime :hora
-      t.string :ftPst
+      t.string :ftPst #mas adelante
       t.integer :cantMin
       t.integer :cantMax
       t.integer :cantAct
-      t.datetime :published
-      t.boolean :full
-      t.integer :postTime
-      t.boolean :expired
+      t.datetime :published #borrado
+      t.boolean :full #borrado
+      t.integer :postTime #mas adelante
+      t.boolean :expired #mas adelante
 
       t.timestamps
     end
