@@ -11,6 +11,7 @@ class UserController < Clearance::UsersController
   def create
     @usuario = User.new(user_params)
     @usuario.exp=0
+    @usuario.admin=false
     if @usuario.save
       sign_in @usuario
       redirect_to root_url

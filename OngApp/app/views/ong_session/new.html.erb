@@ -1,0 +1,14 @@
+<h1>Ong Login</h1>
+
+<span id=”alert”><%= alert %></span>
+<%= form_for :ong_session do |f| %>
+
+    <%= f.text_field :email, type: 'email' %>
+
+    <%= f.password_field :password %>
+
+    <%= f.submit "Log In" %>
+
+    <%= link_to "Registrarse como usuario", sign_up_path %>
+    <%= link_to "Registrar una Ong", ong_sign_up_path %>
+<% end %>
