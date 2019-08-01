@@ -1,5 +1,6 @@
 class UserController < Clearance::UsersController
   before_action :require_login, only: [:index]
+  before_action :any_logged, except: [:index]
   def index
     @usuario=current_user
   end

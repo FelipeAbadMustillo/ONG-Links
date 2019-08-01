@@ -1,19 +1,14 @@
 class OrganizationController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+  before_action :require_adm, only: [:new, :create]
+  before_action :require_ong_login, only: [:index]
+
   def index
-    if current_ong
-      @ong=current_ong
-    else
-      redirect_to ong_sign_in_path
-    end
+    @ong=current_ong
+    @posts=current_ong.posts
   end
 
   def new
-    if current_user.admin
-      @ong = Organization.new
-    else
-      redirect_to root_path#new_ong_err_path
-    end
+    @ong = Organization.new
   end
 
   def create

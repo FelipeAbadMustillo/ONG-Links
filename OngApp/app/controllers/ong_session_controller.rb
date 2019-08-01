@@ -1,8 +1,7 @@
 class OngSessionController < ApplicationController
+  before_action :any_logged, except: [:destroy]
+
   def new
-    if signed_in?
-      redirect_to root_url
-    end
   end
 
   def create
@@ -22,9 +21,7 @@ class OngSessionController < ApplicationController
   end
 
   private
-
   def ong_params
     params.require(:ong_session).permit(:password,:email)
   end
-
 end

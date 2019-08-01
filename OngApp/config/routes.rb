@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   get '/sign_in' => 'session#new'
   post '/sign_in' => 'session#create'
   get '/sign_out' => 'session#destroy'
+
+  resources :post
+  get '/nuevo_post' => 'post#new'
 end

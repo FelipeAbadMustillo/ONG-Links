@@ -1,8 +1,6 @@
 class SessionController < Clearance::SessionsController
+  before_action :any_logged, except: [:destroy]
   def new
-    if current_ong
-      redirect_to root_url
-    end
   end
 
   def create
