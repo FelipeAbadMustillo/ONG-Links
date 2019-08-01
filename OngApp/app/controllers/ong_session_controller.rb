@@ -1,5 +1,8 @@
 class OngSessionController < ApplicationController
   def new
+    if signed_in?
+      redirect_to root_url
+    end
   end
 
   def create

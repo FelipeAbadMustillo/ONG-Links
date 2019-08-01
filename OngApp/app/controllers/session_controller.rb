@@ -1,5 +1,8 @@
 class SessionController < Clearance::SessionsController
   def new
+    if current_ong
+      redirect_to root_url
+    end
   end
 
   def create
