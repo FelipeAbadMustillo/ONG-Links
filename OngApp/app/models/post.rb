@@ -5,5 +5,5 @@ class Post < ApplicationRecord
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :users
 
-  #faltan las validaciones
+  #faltan las validaciones 
 end
