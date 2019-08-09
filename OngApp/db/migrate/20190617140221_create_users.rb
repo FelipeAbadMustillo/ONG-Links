@@ -3,17 +3,17 @@ class CreateUsers < ActiveRecord::Migration[5.1]
     create_table :users do |t|
       t.string :nombreUsu
       t.string :apellidoUsu
-      t.string :pwdUsu
+      t.string :pwdUsu #borrado
       t.integer :edad
-      t.string :gen #esta por verse
+      t.string :gen #borrado
       t.string :localidadUsu
       t.integer :telUsu
-      t.string :mail
+      t.string :mail #borrado
       t.string :ocupacion
       t.string :ftUsu #mas adelante y mediante update no desde el registro
-      t.integer :lvl #dsp vere de calcularlo simplemente con el exp
+      t.integer :lvl #borrado
       t.integer :exp
-      t.integer :cantFlw
+      t.integer :cantFlw #borrado
 
       t.timestamps
     end

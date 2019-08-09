@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190702220521) do
+ActiveRecord::Schema.define(version: 20190731230811) do
 
   create_table "Posts_Tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "Post_id", null: false
@@ -48,18 +48,18 @@ ActiveRecord::Schema.define(version: 20190702220521) do
 
   create_table "organizations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "nombreOng"
-    t.string "pwdOng"
     t.text "desc"
     t.string "sede"
     t.integer "tel"
-    t.string "contact"
     t.string "bnnr"
     t.string "ftOng"
-    t.integer "cantFlw"
     t.date "fund"
     t.float "rating", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "password_digest"
+    t.index ["email"], name: "email"
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -71,8 +71,6 @@ ActiveRecord::Schema.define(version: 20190702220521) do
     t.integer "cantMin"
     t.integer "cantMax"
     t.integer "cantAct"
-    t.datetime "published"
-    t.boolean "full"
     t.integer "postTime"
     t.boolean "expired"
     t.datetime "created_at", null: false
@@ -105,19 +103,21 @@ ActiveRecord::Schema.define(version: 20190702220521) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string "nombreUsu"
     t.string "apellidoUsu"
-    t.string "pwdUsu"
     t.integer "edad"
-    t.string "gen"
     t.string "localidadUsu"
     t.integer "telUsu"
-    t.string "mail"
     t.string "ocupacion"
     t.string "ftUsu"
-    t.integer "lvl"
     t.integer "exp"
-    t.integer "cantFlw"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.string "encrypted_password", limit: 128
+    t.string "confirmation_token", limit: 128
+    t.string "remember_token", limit: 128
+    t.boolean "admin"
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
 end

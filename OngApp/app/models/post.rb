@@ -4,5 +4,6 @@ class Post < ApplicationRecord
   has_many :users, through: :appointments
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :users
-  #falta poner relacion rating con ong y relacion favoritos con post, mas tarde lo vere
+
+  #faltan las validaciones 
 end

@@ -1,0 +1,30 @@
+<h1> Registrar ONG </h1>
+
+<%= form_for @ong, url: organization_index_path do |f| %>
+
+  <li><%= f.text_field :nombreOng, placeholder: "Nombre"%>
+  <% @ong.errors[:nombreOng].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.password_field :password, placeholder: "Contraseña" %>
+  <% @ong.errors[:password].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.email_field :email, placeholder: "Direccion de Mail" %>
+  <% @ong.errors[:email].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.telephone_field :tel, placeholder: "Telefono" %>
+  <% @ong.errors[:tel].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
+  <li><%= f.submit "Registarse" %>
+<% end %>

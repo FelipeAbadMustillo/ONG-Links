@@ -14,8 +14,8 @@
   <% end %>
   </li>
 
-  <li><%= f.password_field :pwdUsu, placeholder: "Contraseña" %>
-  <% @usuario.errors[:pwdUsu].each do |error| %>
+  <li><%= f.password_field :password, placeholder: "Contraseña" %>
+  <% @usuario.errors[:password].each do |error| %>
     <span class="error">*<%= error %>
   <% end %>
   </li>
@@ -32,8 +32,8 @@
   <% end %>
   </li>
 
-  <li><%= f.email_field :mail, placeholder: "Direccion de Mail" %>
-  <% @usuario.errors[:mail].each do |error| %>
+  <li><%= f.email_field :email, placeholder: "Direccion de Mail" %>
+  <% @usuario.errors[:email].each do |error| %>
     <span class="error">*<%= error %>
   <% end %>
   </li>
