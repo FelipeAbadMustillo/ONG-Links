@@ -1,6 +1,7 @@
 class OrganizationController < ApplicationController
   before_action :require_adm, only: [:new, :create]
   before_action :require_ong_login, only: [:index]
+  before_action :require_login, only: [:show]
 
   def index
     @ong=current_ong
@@ -19,6 +20,10 @@ class OrganizationController < ApplicationController
     else
       render :action=>'new'
     end
+  end
+
+  def show
+      @ong=Organization.find(params[:id])
   end
 
   private

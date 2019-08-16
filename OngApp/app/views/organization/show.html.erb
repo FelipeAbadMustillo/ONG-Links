@@ -1,0 +1,16 @@
+<h2> <%= @ong.nombreOng %></h2>
+<p> <%= @ong.desc %></p>
+<h2> Post disponibles:</h2>
+
+<% @ong.posts do |post| %>
+  <% if !post.expired %>
+    <li>
+      <p><%= post.descPst %></p>
+      <span><%= post.lugar %></span>
+      <span><%= post.hora %></span>
+      <span><%= post.cantMin %> - <%= post.cantMax %></span>
+      <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
+    </li>
+    <!-- link to enlistarse ––>
+  <% end %>
+<% end %>
