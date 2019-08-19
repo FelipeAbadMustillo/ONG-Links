@@ -2,6 +2,12 @@
 
 <%= form_for @post, url: {action: "create"} do |f| %>
 
+  <li><%= f.text_field :title, placeholder: "Título"%>
+  <% @post.errors[:title].each do |error| %>
+    <span class="error">*<%= error %>
+  <% end %>
+  </li>
+
   <li><%= f.text_field :descPst, placeholder: "Descripción"%>
   <% @post.errors[:descPst].each do |error| %>
     <span class="error">*<%= error %>

@@ -3,6 +3,11 @@ class UserController < Clearance::UsersController
   before_action :any_logged, except: [:index]
   def index
     @usuario=current_user
+    if params[:search]
+      @ongs=Organization.where("nombreOng LIKE ?" , "%#{params[:search]}%")
+    else
+      @ongs=nil
+    end
   end
 
   def new

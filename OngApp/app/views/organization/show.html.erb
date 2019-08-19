@@ -2,15 +2,11 @@
 <p> <%= @ong.desc %></p>
 <h2> Post disponibles:</h2>
 
-<% @ong.posts do |post| %>
-  <% if !post.expired %>
-    <li>
-      <p><%= post.descPst %></p>
-      <span><%= post.lugar %></span>
-      <span><%= post.hora %></span>
-      <span><%= post.cantMin %> - <%= post.cantMax %></span>
-      <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
-    </li>
-    <!-- link to enlistarse ––>
+<% @ong.posts.each do |post| %>
+  <h1><%= post.title %></h1>
+  <p><%= post.descPst %></p>
+  <% if post.expired %>
+    <span> Esta lleno</span>
   <% end %>
+  <span><%= link_to "Ver Más...", post_path(post) %></span>
 <% end %>

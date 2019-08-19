@@ -1,0 +1,33 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.descPst %></p>
+<span><%= @post.lugar %></span>
+<span><%= @post.hora %></span>
+<span><%= @post.cantMin %> - <%= @post.cantMax %></span>
+<% if @post.expired %>
+  <p>Este post ya expiró o ya esta lleno</p>
+  <%= link_to "Home", root_url %>
+<% else %>
+  <span>Se enlistaron <%= @post.cantAct %> personas a esta actividad</span>
+<% end %>
+<% if signed_in? %>
+  <% if !enlistado?(current_user,@post) %>
+    <%= form_tag(post_path(@post.id), method: :patch) do %>
+      <%= submit_tag ("Enlistarse"), name: nil %>
+    <% end %>
+  <% else %>
+    <p>Estas enlistado en esta actividad</p>
+  <% end %>
+<% elsif current_ong %>
+  <% if current_ong.posts.exists?(@post.id) %>
+    <% @users.each do |user| %>
+      <!--<%= link_to user.nombreUsu, user_path(user) %>-->
+      <span><%= user.nombreUsu %></span>
+      <%= link_to "Eliminar", eliminar_appointment_path(user_id: user.id, post_id: @post.id), method: :delete %>
+      <span> Esta accion eliminara al usuario de la actividad</span>
+    <% end %>
+  <% else %>
+    <span> Este post no pertenece a tu Ong </span>
+  <% end %>
+<% else %>
+  <p>Necesitas logearte para poder enlistarte en las actividades</p>
+<% end %>
