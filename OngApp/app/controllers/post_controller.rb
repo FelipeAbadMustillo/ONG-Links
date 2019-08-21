@@ -18,8 +18,7 @@ class PostController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
+    Post.find(params[:id]).destroy
     redirect_to organization_index_path
   end
 
