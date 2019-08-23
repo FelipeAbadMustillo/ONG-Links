@@ -20,8 +20,7 @@
 <% elsif current_ong %>
   <% if current_ong.posts.exists?(@post.id) %>
     <% @users.each do |user| %>
-      <!--<%= link_to user.nombreUsu, user_path(user) %>-->
-      <span><%= user.nombreUsu %></span>
+      <%= link_to user.nombreUsu, user_path(user) %>
       <%= link_to "Eliminar", eliminar_appointment_path(user_id: user.id, post_id: @post.id), method: :delete %>
       <span> Esta accion eliminara al usuario de la actividad</span>
     <% end %>

@@ -1,6 +1,7 @@
 class UserController < Clearance::UsersController
   before_action :require_login, only: [:index]
-  before_action :any_logged, except: [:index]
+  before_action :any_logged, except: [:index,:show]
+  before_action :require_ong_login, only: [:show]
   def index
     @usuario=current_user
     if params[:search]
@@ -24,6 +25,10 @@ class UserController < Clearance::UsersController
     else
       render :action=>'new'
     end
+  end
+
+  def show
+    @usuario=User.find(params[:id])
   end
 
   private
