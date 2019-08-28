@@ -1,3 +1,4 @@
+<h1>Iniciar sesión: Usuario</h1>
 <%= form_for :session do |f| %>
 
     <%= f.text_field :email, type: 'email' %>
@@ -5,6 +6,6 @@
     <%= f.password_field :password %>
 
     <%= f.submit %>
-
-    <%= link_to "Registrarse", sign_up_path %>
 <% end %>
+<%= link_to "No tenes una cuenta? registrate", sign_up_path %>
+<%= link_to "Eres una Ong?", ong_sign_in_path %>
