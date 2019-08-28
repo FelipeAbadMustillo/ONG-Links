@@ -119,6 +119,7 @@ ActiveRecord::Schema.define(version: 20190823203255) do
     t.string "remember_token", limit: 128
     t.boolean "admin"
     t.text "desc"
+    t.string "sexo"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
