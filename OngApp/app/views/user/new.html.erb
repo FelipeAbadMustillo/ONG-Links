@@ -1,63 +1,65 @@
 <h1> Registrar usuario </h1>
 
-<%= form_for @usuario, url: user_index_path do |f| %>
+<div class="container">
+  <%= form_for @usuario, url: user_index_path do |f| %>
 
-  <li><%= f.text_field :nombreUsu, placeholder: "Nombre"%>
-  <% @usuario.errors[:nombreUsu].each do |error| %>
-    <span class="error">*<%= error %>
+    <li class="inputBox"><%= f.text_field :nombreUsu, placeholder: "Nombre"%>
+    <% @usuario.errors[:nombreUsu].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :apellidoUsu, placeholder: "Apellido" %>
+    <% @usuario.errors[:apellidoUsu].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.password_field :password, placeholder: "Contraseña" %>
+    <% @usuario.errors[:password].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.email_field :email, placeholder: "Direccion de Mail" %>
+    <% @usuario.errors[:email].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.number_field :edad,step:1, placeholder: "Edad" %>
+    <% @usuario.errors[:edad].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
+    <% @usuario.errors[:localidadUsu].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :desc, placeholder: "Descripción" %>
+    <% @usuario.errors[:desc].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
+    <% @usuario.errors[:ocupacion].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+
+    <li class="inputBox"><%= f.telephone_field :telUsu, placeholder: "Telefono" %>
+    <% @usuario.errors[:telUsu].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <!––#Falta poner sexo––>
+
+    <li><%= f.submit "Registarse" %>
   <% end %>
-  </li>
-
-  <li><%= f.text_field :apellidoUsu, placeholder: "Apellido" %>
-  <% @usuario.errors[:apellidoUsu].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.password_field :password, placeholder: "Contraseña" %>
-  <% @usuario.errors[:password].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.email_field :email, placeholder: "Direccion de Mail" %>
-  <% @usuario.errors[:email].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.number_field :edad,step:1, placeholder: "Edad" %>
-  <% @usuario.errors[:edad].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
-  <% @usuario.errors[:localidadUsu].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.text_field :desc, placeholder: "Descripción" %>
-  <% @usuario.errors[:desc].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
-  <% @usuario.errors[:ocupacion].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-
-  <li><%= f.telephone_field :telUsu, placeholder: "Telefono" %>
-  <% @usuario.errors[:telUsu].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <!––#Falta poner sexo––>
-
-  <li><%= f.submit "Registarse" %>
-<% end %>
+</div>

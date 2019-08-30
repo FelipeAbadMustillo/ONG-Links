@@ -33,6 +33,6 @@ class UserController < Clearance::UsersController
 
   private
   def user_params
-    params.require(:user).permit(:nombreUsu,:apellidoUsu,:password,:edad,:ocupacion,:email,:localidadUsu,:telUsu)
+    params.require(:user).permit(:nombreUsu,:apellidoUsu,:password,:edad,:ocupacion,:email,:localidadUsu,:telUsu,:desc)
   end
 end
