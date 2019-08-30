@@ -3,7 +3,7 @@
 <h2> Post disponibles:</h2>
 
 <% @ong.posts.each do |post| %>
-  <h1><%= post.title %></h1>
+  <h2><%= post.title %></h2>
   <p><%= post.descPst %></p>
   <% if post.expired %>
     <span> Esta lleno</span>

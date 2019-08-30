@@ -5,7 +5,7 @@
 <h2> Tus posts disponibles:</h2>
 
 <% @posts.each do |post| %>
-  <h1><%= link_to post.title, post_path(post) %></h1>
+  <h2><%= link_to post.title, post_path(post) %></h2>
   <% if !post.expired %>
     <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
   <% else %>

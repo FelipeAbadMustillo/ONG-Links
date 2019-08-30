@@ -1,44 +1,45 @@
 <h1> Crear un nuevo post </h1>
+<div class="container">
+  <%= form_for @post, url: {action: "create"} do |f| %>
 
-<%= form_for @post, url: {action: "create"} do |f| %>
+    <li class="inputBox"><%= f.text_field :title, placeholder: "Título"%>
+    <% @post.errors[:title].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
 
-  <li><%= f.text_field :title, placeholder: "Título"%>
-  <% @post.errors[:title].each do |error| %>
-    <span class="error">*<%= error %>
+    <li class="inputBox"><%= f.text_field :descPst, placeholder: "Descripción"%>
+    <% @post.errors[:descPst].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :lugar, placeholder: "Lugar" %>
+    <% @post.errors[:lugar].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.number_field :cantMin,step:1, placeholder: "Cantidad minima de participantes" %>
+    <% @post.errors[:cantMin].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.number_field :cantMax,step:1, placeholder: "Cantidad maxima de participantes" %>
+    <% @post.errors[:cantMax].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.number_field :postTime,step:1, placeholder: "Tiempo de visibilidad (en horas)" %>
+    <% @post.errors[:postTime].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <!––#Falta poner fecha––>
+
+    <li id="submit-user"><%= f.submit "Postear" %>
   <% end %>
-  </li>
-
-  <li><%= f.text_field :descPst, placeholder: "Descripción"%>
-  <% @post.errors[:descPst].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.text_field :lugar, placeholder: "Lugar" %>
-  <% @post.errors[:lugar].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.number_field :cantMin,step:1, placeholder: "Cantidad minima de participantes" %>
-  <% @post.errors[:cantMin].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.number_field :cantMax,step:1, placeholder: "Cantidad maxima de participantes" %>
-  <% @post.errors[:cantMax].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.number_field :postTime,step:1, placeholder: "Tiempo de visibilidad (en horas)" %>
-  <% @post.errors[:postTime].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <!––#Falta poner fecha––>
-
-  <li><%= f.submit "Postear" %>
-<% end %>
+</div>

@@ -1,30 +1,31 @@
 <h1> Registrar ONG </h1>
+<div class="container">
+  <%= form_for @ong, url: organization_index_path do |f| %>
 
-<%= form_for @ong, url: organization_index_path do |f| %>
+    <li class="inputBox"><%= f.text_field :nombreOng, placeholder: "Nombre"%>
+    <% @ong.errors[:nombreOng].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
 
-  <li><%= f.text_field :nombreOng, placeholder: "Nombre"%>
-  <% @ong.errors[:nombreOng].each do |error| %>
-    <span class="error">*<%= error %>
+    <li class="inputBox"><%= f.password_field :password, placeholder: "Contraseña" %>
+    <% @ong.errors[:password].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.email_field :email, placeholder: "Direccion de Mail" %>
+    <% @ong.errors[:email].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.telephone_field :tel, placeholder: "Telefono" %>
+    <% @ong.errors[:tel].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li id="submit-user"><%= f.submit "Registarse" %>
   <% end %>
-  </li>
-
-  <li><%= f.password_field :password, placeholder: "Contraseña" %>
-  <% @ong.errors[:password].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.email_field :email, placeholder: "Direccion de Mail" %>
-  <% @ong.errors[:email].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.telephone_field :tel, placeholder: "Telefono" %>
-  <% @ong.errors[:tel].each do |error| %>
-    <span class="error">*<%= error %>
-  <% end %>
-  </li>
-
-  <li><%= f.submit "Registarse" %>
-<% end %>
+</div>
