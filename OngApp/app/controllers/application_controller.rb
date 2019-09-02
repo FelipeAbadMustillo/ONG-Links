@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
   protect_from_forgery with: :exception
-  helper_method :current_ong, :any_logged, :require_ong_login, :require_adm
+  helper_method :current_ong, :any_logged, :require_ong_login, :require_adm, :enlistado?
 
   def current_ong
     if session[:ong_id]
@@ -27,5 +27,15 @@ class ApplicationController < ActionController::Base
     if !signed_in? || !current_user.admin
       redirect_to root_path #not_adm_err_path
     end
+  end
+
+  def enlistado? (user,post)
+    aux=false
+    user.appointments.each do |ap|
+      if ap.post_id==post.id
+        aux=true
+      end
+    end
+    return aux
   end
 end

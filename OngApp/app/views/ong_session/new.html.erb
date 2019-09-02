@@ -1,14 +1,8 @@
-<h1>Ong Login</h1>
-
-<span id=”alert”><%= alert %></span>
+<h1 class="login">Iniciar Sesión: Organización</h1>
 <%= form_for :ong_session do |f| %>
-
-    <%= f.text_field :email, type: 'email' %>
-
-    <%= f.password_field :password %>
-
-    <%= f.submit "Log In" %>
-
-    <%= link_to "Registrarse como usuario", sign_up_path %>
-    <%= link_to "Registrar una Ong", ong_sign_up_path %>
+  <%= f.text_field :email, type: 'email' %>
+  <%= f.password_field :password %>
+  <%= f.submit "Log In" %>
 <% end %>
+<span>No tienes una cuenta? Registra tu Ong <%= link_to "Aquí", ong_sign_up_path %></span>
+<%= link_to "Eres un Usuario?", sign_in_path %>

@@ -1,0 +1,12 @@
+<h2> <%= @ong.nombreOng %></h2>
+<p> <%= @ong.desc %></p>
+<h2> Post disponibles:</h2>
+
+<% @ong.posts.each do |post| %>
+  <h2><%= post.title %></h2>
+  <p><%= post.descPst %></p>
+  <% if post.expired %>
+    <span> Esta lleno</span>
+  <% end %>
+  <span><%= link_to "Ver Más...", post_path(post) %></span>
+<% end %>

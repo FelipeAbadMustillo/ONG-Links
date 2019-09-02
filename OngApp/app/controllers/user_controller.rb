@@ -1,8 +1,14 @@
 class UserController < Clearance::UsersController
   before_action :require_login, only: [:index]
-  before_action :any_logged, except: [:index]
+  before_action :any_logged, except: [:index,:show]
+  before_action :require_ong_login, only: [:show]
   def index
     @usuario=current_user
+    if params[:search]
+      @ongs=Organization.where("nombreOng LIKE ?" , "%#{params[:search]}%")
+    else
+      @ongs=nil
+    end
   end
 
   def new
@@ -21,8 +27,12 @@ class UserController < Clearance::UsersController
     end
   end
 
+  def show
+    @usuario=User.find(params[:id])
+  end
+
   private
   def user_params
-    params.require(:user).permit(:nombreUsu,:apellidoUsu,:password,:edad,:ocupacion,:email,:localidadUsu,:telUsu)
+    params.require(:user).permit(:nombreUsu,:apellidoUsu,:password,:edad,:ocupacion,:email,:localidadUsu,:telUsu,:desc)
   end
 end

@@ -13,3 +13,53 @@
  *= require_tree .
  *= require_self
  */
+
+ body
+ {
+   font-size: 1em;
+ }
+ .error
+ {
+   color: white;
+   background-color: red;
+ }
+
+ .container {
+     display: flex;
+     justify-content: center;
+     align-items:center;
+ }
+ .inputBox{
+    width: 15em;
+    height: 1em;
+    background-color:#8760d8s;
+    border-radius:25px;
+    padding:16px;
+    font-size:15px;
+    margin: 10px;
+    border-color:#00ffff;
+  }
+  button{
+    width: 160px;
+    background-color:#6495ed;
+    border-radius:25px;
+    color: #ffffff;
+    margin: 30px;
+    padding: 12px;
+    align-items:center;
+  }
+
+  #submit-user
+  {
+    padding-left: 6em;
+  }
+
+  h1
+  {
+    text-align: center;
+  }
+
+  .login
+  {
+    text-align: left;
+  }

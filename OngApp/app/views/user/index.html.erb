@@ -1,2 +1,16 @@
 <h2> Bienvenido <%= @usuario.nombreUsu %> ,<%= @usuario.apellidoUsu %> </h2>
 <%= link_to "Cerrar Sesion", sign_out_path %>
+
+<h3> Buscar Ongs: </h3>
+<%= form_tag(user_index_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Buscar"), name: nil %>
+<% end %>
+
+<% if @ongs %>
+  <% @ongs.each do |ong| %>
+    <li><%= link_to ong.nombreOng, organization_path(ong) %></li>
+  <% end %>
+<% else %>
+  <span> Busca Ongs para poder suscribirte a ellas y enlistarte en sus actividades! </span>
+<% end %>

@@ -5,15 +5,11 @@
 <h2> Tus posts disponibles:</h2>
 
 <% @posts.each do |post| %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
   <% if !post.expired %>
-    <li>
-      <p><%= post.descPst %></p>
-      <span><%= post.lugar %></span>
-      <span><%= post.hora %></span>
-      <span><%= post.cantMin %> - <%= post.cantMax %></span>
-      <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
-    </li>
-    <!--<%= link_to "Eliminar este post?", post ,method: :delete %>-->
-    <!-- #link to updatearlo ––>
+    <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
+  <% else %>
+    <span>esta actividad ya esta llena</span>
   <% end %>
+  <%= link_to "Eliminar este post?", post_path(post) ,method: :delete %>
 <% end %>

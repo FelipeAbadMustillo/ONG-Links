@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190731230811) do
-
-  create_table "Posts_Tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.bigint "Post_id", null: false
-    t.bigint "Tag_id", null: false
-    t.index ["Post_id", "Tag_id"], name: "index_Posts_Tags_on_post_id_and_tag_id"
-    t.index ["Tag_id", "Post_id"], name: "index_Posts_Tags_on_tag_id_and_post_id"
-  end
+ActiveRecord::Schema.define(version: 20190823203255) do
 
   create_table "Tags_Users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "Tag_id", null: false
@@ -27,11 +20,11 @@ ActiveRecord::Schema.define(version: 20190731230811) do
   end
 
   create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.bigint "user_id"
-    t.bigint "post_id"
     t.datetime "fechaEnlist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "post_id"
     t.index ["post_id"], name: "index_appointments_on_post_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -75,7 +68,16 @@ ActiveRecord::Schema.define(version: 20190731230811) do
     t.boolean "expired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.integer "exp"
     t.index ["organization_id"], name: "index_posts_on_organization_id"
+  end
+
+  create_table "posts_tags", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.bigint "Post_id", null: false
+    t.bigint "Tag_id", null: false
+    t.index ["Post_id", "Tag_id"], name: "index_Posts_Tags_on_post_id_and_tag_id"
+    t.index ["Tag_id", "Post_id"], name: "index_Posts_Tags_on_tag_id_and_post_id"
   end
 
   create_table "posts_users", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
@@ -116,8 +118,12 @@ ActiveRecord::Schema.define(version: 20190731230811) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
     t.boolean "admin"
+    t.text "desc"
+    t.string "sexo"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "appointments", "posts"
+  add_foreign_key "appointments", "users"
 end

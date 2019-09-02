@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :post
   get '/nuevo_post' => 'post#new'
+
+  delete '/eliminar_appointment' => 'appointment#destroy', :as => :eliminar_appointment
 end
