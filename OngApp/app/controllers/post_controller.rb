@@ -54,6 +54,10 @@ class PostController < ApplicationController
     end
   end
 
+  def release
+    #algoritmo de terminar post entrgando toda la exp correspondiente
+  end
+
   private
   def post_params
     params.require(:post).permit(:descPst,:lugar,:cantMin,:cantMax,:postTime,:hora,:title)

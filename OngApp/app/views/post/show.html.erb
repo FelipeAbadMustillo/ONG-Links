@@ -20,9 +20,15 @@
 <% elsif current_ong %>
   <% if current_ong.posts.exists?(@post.id) %>
     <% @users.each do |user| %>
-      <%= link_to user.nombreUsu, user_path(user) %>
-      <%= link_to "Eliminar", eliminar_appointment_path(user_id: user.id, post_id: @post.id), method: :delete %>
-      <span> Esta accion eliminara al usuario de la actividad</span>
+      <li>
+        <%= link_to user.nombreUsu, user_path(user) %>
+        <%= link_to "Eliminar", eliminar_appointment_path(user_id: user.id, post_id: @post.id), method: :delete %>
+        <span> Esta accion eliminara al usuario de la actividad</span>
+      </li>
+    <% end %>
+    <%= form_tag(terminar_post_path(@post.id), method: :patch) do %>
+      <%= submit_tag ("Terminar Actividad"), name: nil %>
+      <span>Esto le dara su respectiva experiencia a TODOS los usuarios enlistados anteriormente, de haber un error eliminar al respectivo usuario</span>
     <% end %>
   <% else %>
     <span> Este post no pertenece a tu Ong </span>
@@ -30,4 +36,3 @@
 <% else %>
   <p>Necesitas logearte para poder enlistarte en las actividades</p>
 <% end %>
-<!––#Falta poner release exp––>
