@@ -1,38 +1,45 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.descPst %></p>
-<span><%= @post.lugar %></span>
-<span><%= @post.hora %></span>
-<span><%= @post.cantMin %> - <%= @post.cantMax %></span>
+<li><%= @post.lugar %></li>
+<li><%= @post.hora %></li>
+<li><%= @post.cantMin %> - <%= @post.cantMax %></li>
+<li>Experiencia: <%= @post.exp %></li>
+
+<% if current_ong %>
+  <% if current_ong.posts.exists?(@post.id) %>
+    <ol>
+      <% @users.each do |user| %>
+        <li>
+          <%= link_to user.nombreUsu, user_path(user) %>
+          <%= link_to "Eliminar", eliminar_appointment_path(user_id: user.id, post_id: @post.id), method: :delete %>
+          <span>Esta accion eliminara al usuario de la actividad</span>
+        </li>
+      <% end %>
+    </ol>
+  <% else %>
+    <span> Este post no pertenece a tu Ong </span>
+  <% end %>
+<% end %>
+
 <% if @post.expired %>
-  <p>Este post ya expiró o ya esta lleno</p>
+  <p>Este post ya expiró</p>
   <%= link_to "Home", root_url %>
 <% else %>
   <span>Se enlistaron <%= @post.cantAct %> personas a esta actividad</span>
-<% end %>
-<% if signed_in? %>
-  <% if !enlistado?(current_user,@post) %>
-    <%= form_tag(post_path(@post.id), method: :patch) do %>
-      <%= submit_tag ("Enlistarse"), name: nil %>
+  <% if signed_in? %>
+    <% if !enlistado?(current_user,@post) && @post.cantAct < @post.cantMax %>
+      <%= form_tag(post_path(@post.id), method: :patch) do %>
+        <%= submit_tag ("Enlistarse"), name: nil %>
+      <% end %>
+    <% else %>
+      <p>Ya estas enlistado en esta actividad o no hay más lugar</p>
     <% end %>
-  <% else %>
-    <p>Estas enlistado en esta actividad</p>
-  <% end %>
-<% elsif current_ong %>
-  <% if current_ong.posts.exists?(@post.id) %>
-    <% @users.each do |user| %>
-      <li>
-        <%= link_to user.nombreUsu, user_path(user) %>
-        <%= link_to "Eliminar", eliminar_appointment_path(user_id: user.id, post_id: @post.id), method: :delete %>
-        <span> Esta accion eliminara al usuario de la actividad</span>
-      </li>
-    <% end %>
+  <% elsif current_ong && current_ong.posts.exists?(@post.id) %>
     <%= form_tag(terminar_post_path(@post.id), method: :patch) do %>
       <%= submit_tag ("Terminar Actividad"), name: nil %>
       <span>Esto le dara su respectiva experiencia a TODOS los usuarios enlistados anteriormente, de haber un error eliminar al respectivo usuario</span>
     <% end %>
   <% else %>
-    <span> Este post no pertenece a tu Ong </span>
+    <p>Necesitas logearte para poder enlistarte en las actividades</p>
   <% end %>
-<% else %>
-  <p>Necesitas logearte para poder enlistarte en las actividades</p>
 <% end %>

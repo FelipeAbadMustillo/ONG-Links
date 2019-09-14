@@ -3,8 +3,7 @@ class AppointmentController < ApplicationController
   def destroy
     @post=Post.find(params[:post_id])
     if current_ong.posts.exists?(@post.id)
-      aux = @post.cantAct-1 < @post.cantMax
-      if @post.update(cantAct: @post.cantAct-1, expired: !aux)
+      if @post.update(cantAct: @post.cantAct-1)
         Appointment.find_by("user_id = ? AND post_id = ?",params[:user_id],params[:post_id]).destroy
       end
       redirect_to post_path(@post)

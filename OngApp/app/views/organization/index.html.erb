@@ -6,10 +6,14 @@
 
 <% @posts.each do |post| %>
   <h2><%= link_to post.title, post_path(post) %></h2>
-  <% if !post.expired %>
-    <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
+  <% if post.expired %>
+    <span>esta actividad ya expiro</span>
   <% else %>
-    <span>esta actividad ya esta llena</span>
+    <% if post.cantAct < post.cantMax %>
+      <span>Se enlistaron <%= post.cantAct %> personas a esta actividad</span>
+    <% else %>
+      <span>Llena</span>
+    <% end %>
   <% end %>
   <%= link_to "Eliminar este post?", post_path(post) ,method: :delete %>
 <% end %>

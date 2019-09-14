@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :post
   get '/nuevo_post' => 'post#new'
-  patch '/terminar_post/:id' => 'post#release'
+  patch '/terminar_post/:id' => 'post#release', :as => :terminar_post
 
   delete '/eliminar_appointment' => 'appointment#destroy', :as => :eliminar_appointment
 

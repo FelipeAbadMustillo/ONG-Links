@@ -5,8 +5,12 @@
 <% @ong.posts.each do |post| %>
   <h2><%= post.title %></h2>
   <p><%= post.descPst %></p>
+
   <% if post.expired %>
+    <span> Ya Expiro</span>
+  <% elsif post.cantAct >= post.cantMax %>
     <span> Esta lleno</span>
   <% end %>
+  
   <span><%= link_to "Ver Más...", post_path(post) %></span>
 <% end %>
