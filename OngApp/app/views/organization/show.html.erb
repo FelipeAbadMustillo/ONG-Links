@@ -1,5 +1,12 @@
 <h2> <%= @ong.nombreOng %></h2>
 <p> <%= @ong.desc %></p>
+<% if subscripto?(current_user,@ong) %>
+  <p>Estas subscripto a esta ong</p>
+<% else %>
+  <%= form_tag(subscribe_path(@ong.id), method: :patch) do %>
+    <%= submit_tag ("Subscribirse"), name: nil %>
+  <% end %>
+<% end %>
 <h2> Post disponibles:</h2>
 
 <% @ong.posts.each do |post| %>
@@ -11,6 +18,6 @@
   <% elsif post.cantAct >= post.cantMax %>
     <span> Esta lleno</span>
   <% end %>
-  
+
   <span><%= link_to "Ver Más...", post_path(post) %></span>
 <% end %>

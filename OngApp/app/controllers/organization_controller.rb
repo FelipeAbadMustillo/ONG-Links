@@ -1,7 +1,7 @@
 class OrganizationController < ApplicationController
   before_action :require_adm, only: [:new, :create]
   before_action :require_ong_login, only: [:index]
-  before_action :require_login, only: [:show]
+  before_action :require_login, only: [:show, :sub]
 
   def index
     @ong=current_ong
@@ -24,6 +24,18 @@ class OrganizationController < ApplicationController
 
   def show
       @ong=Organization.find(params[:id])
+  end
+
+  def sub
+    @sub=Follow.new
+    @ong=Organization.find(params[:id])
+    current_user.follows<<@sub
+    @ong.follows<<@sub
+    if @sub.save
+      redirect_to organization_path(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   private

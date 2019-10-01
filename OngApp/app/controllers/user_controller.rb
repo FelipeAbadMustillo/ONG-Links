@@ -9,6 +9,11 @@ class UserController < Clearance::UsersController
     else
       @ongs=nil
     end
+    @lastPost=[]
+    current_user.follows.each do |fw|
+      @ong=Organization.find(fw.organization_id)
+      @lastPost<<@ong.posts.order("created_at").last
+    end
   end
 
   def new
