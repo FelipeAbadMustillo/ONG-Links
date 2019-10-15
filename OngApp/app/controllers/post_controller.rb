@@ -36,27 +36,44 @@ class PostController < ApplicationController
 
   def update
     @post=Post.find(params[:id])
-    if signed_in? && !enlistado?(current_user,@post)
-      aux=@post.cantAct + 1 >= @post.cantMax
-      @appointment=Appointment.new
-      current_user.appointments<<@appointment
-      @post.appointments<<@appointment
+    if signed_in?
+      if !enlistado?(current_user,@post) && @post.cantAct < @post.cantMax
+        @appointment=Appointment.new
+        current_user.appointments<<@appointment
+        @post.appointments<<@appointment
 
-      if @appointment.save && @post.update(cantAct: @post.cantAct+1, expired: aux)
-        redirect_to post_path(params[:id])
+        if @appointment.save && @post.update(cantAct: @post.cantAct+1)
+          redirect_to post_path(params[:id])
+        else
+          flash.now[:error] = 'No se pudo concretar la accion, intentalo de nuevo más tarde'
+          render "show"
+        end
       else
-        flash.now[:error] = 'No se pudo concretar la accion, intentalo de nuevo más tarde'
+        flash.now[:error] = 'ya te enlistaste a esta actividad o está llena'
         render "show"
       end
+    end #aca iria elsif current_ong y el update normal
+  end
+
+  def release
+    @post=Post.find(params[:id])
+    if @post.update(expired: true)
+      @aps=Appointment.where("post_id = ?", params[:id])
+      @aps.each do|ap|
+        @user=User.find(ap.user_id)
+        exp=@user.exp + @post.exp
+        @user.update(exp: exp)
+      end
+      Appointment.destroy(@aps.map(&:id))
     else
-      flash.now[:error] = 'ya te enlistaste a esta actividad'
-      render "show"
+      flash.now[:error] = 'No se pudo concretar la accion, intentalo de nuevo más tarde'
     end
+    redirect_to root_path
   end
 
   private
   def post_params
-    params.require(:post).permit(:descPst,:lugar,:cantMin,:cantMax,:postTime,:hora,:title)
+    params.require(:post).permit(:descPst,:lugar,:cantMin,:cantMax,:postTime,:hora,:title,:exp)
   end
 
 end

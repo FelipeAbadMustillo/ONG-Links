@@ -38,7 +38,13 @@
     <% end %>
     </li>
 
-    <!––#Falta poner fecha––>
+    <li class="inputBox"><%= f.number_field :exp,step:10, placeholder: "Experiencia dada" %>
+    <% @post.errors[:exp].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <!––#Falta poner fecha e imagen––>
 
     <li id="submit-user"><%= f.submit "Postear" %>
   <% end %>

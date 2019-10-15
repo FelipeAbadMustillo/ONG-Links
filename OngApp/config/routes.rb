@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/ong_sign_in' => 'ong_session#new'
   post '/ong_sign_in' => 'ong_session#create'
   get '/ong_sign_out' => 'ong_session#destroy'
+  patch '/subscribe/:id' => 'organization#sub', :as => :subscribe
 
   resources :user
   get '/sign_up' => 'user#new'
@@ -16,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :post
   get '/nuevo_post' => 'post#new'
+  patch '/terminar_post/:id' => 'post#release', :as => :terminar_post
 
   delete '/eliminar_appointment' => 'appointment#destroy', :as => :eliminar_appointment
+
+
 end
