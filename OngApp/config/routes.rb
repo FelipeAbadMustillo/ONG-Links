@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/ong_sign_in' => 'ong_session#create'
   get '/ong_sign_out' => 'ong_session#destroy'
   patch '/subscribe/:id' => 'organization#sub', :as => :subscribe
+  patch '/rate/:id' => 'organization#rate', :as => :rate
 
   resources :user
   get '/sign_up' => 'user#new'

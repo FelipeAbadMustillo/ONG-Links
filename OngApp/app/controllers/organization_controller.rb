@@ -38,6 +38,29 @@ class OrganizationController < ApplicationController
     end
   end
 
+  def rate
+    @rtng=Rating.new
+    @ong=Organization.find(params[:id])
+    current_user.ratings<<@rtng
+    @ong.ratings<<@rtng
+    @rtng.cant=params[:points][0]
+    if @rtng.save
+      total=0
+      @ong.ratings.each do |rati|
+        total+=rati.cant
+      end
+      if @ong.update(rating: total/@ong.ratings.size)
+        redirect_to organization_path(params[:id])
+      else
+        flash.now[:error] = 'Hubo un error inesperado'
+        redirect_to organization_path(params[:id])
+      end
+    else
+      flash.now[:error] = 'El número ingresado no es correcto'
+      render :action=>'show'
+    end
+  end
+
   private
   def ong_params
     params.require(:organization).permit(:nombreOng,:tel,:password,:email)
