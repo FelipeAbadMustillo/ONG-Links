@@ -1,6 +1,6 @@
 class OrganizationController < ApplicationController
   before_action :require_adm, only: [:new, :create]
-  before_action :require_ong_login, only: [:index]
+  before_action :require_ong_login, only: [:index,:edit,:update]
   before_action :require_login, only: [:show, :sub]
 
   def index
@@ -25,6 +25,27 @@ class OrganizationController < ApplicationController
   def show
       @ong=Organization.find(params[:id])
   end
+
+  def edit
+    @ong=Organization.find(params[:id])
+    if current_ong.id != @ong.id
+      redirect_to organization_index_path
+    end
+  end
+
+  def update
+    @ong=Organization.find(params[:id])
+    if current_ong.id==@ong.id
+      if @ong.update(ong_update_params)
+        redirect_to organization_index_path
+      else
+        render :edit
+      end
+    else
+      redirect_to organization_index_path
+    end
+  end
+
 
   def sub
     @sub=Follow.new
@@ -64,5 +85,8 @@ class OrganizationController < ApplicationController
   private
   def ong_params
     params.require(:organization).permit(:nombreOng,:tel,:password,:email)
+  end
+  def ong_update_params
+    params.require(:organization).permit(:nombreOng,:tel,:desc,:sede,:ftOng,:bnnr)
   end
 end

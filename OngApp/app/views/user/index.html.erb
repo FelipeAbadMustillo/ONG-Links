@@ -1,4 +1,7 @@
 <h2> Bienvenido <%= @usuario.nombreUsu %> ,<%= @usuario.apellidoUsu %>: <%= @usuario.exp %> </h2>
+<%= image_tag @usuario.ftUsu_url.to_s %>
+<p> <%= @usuario.desc %> </p>
+<%= link_to "Editar usuario", edit_user_path(@usuario) %>
 <%= link_to "Cerrar Sesion", sign_out_path %>
 <div>
   <h3> Buscar Ongs: </h3>

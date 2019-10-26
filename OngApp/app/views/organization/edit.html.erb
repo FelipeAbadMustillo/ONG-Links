@@ -1,0 +1,43 @@
+<h1> Personaliza tu Ong! </h1>
+<div class="container">
+  <%= form_for @ong, url: organization_path(@ong), :html => {:multipart => true} do |f| %>
+
+    <li class="inputBox"><%= f.text_field :nombreOng, placeholder: "Nombre"%>
+    <% @ong.errors[:nombreOng].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.telephone_field :tel, placeholder: "Telefono" %>
+    <% @ong.errors[:tel].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :desc, placeholder: "Descripción" %>
+    <% @ong.errors[:desc].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox"><%= f.text_field :sede, placeholder: "Lugar de la sede" %>
+    <% @ong.errors[:sede].each do |error| %>
+      <span class="error">*<%= error %>
+    <% end %>
+    </li>
+
+    <li class="inputBox">
+      <%= f.label :ftOng, "Foto de perfil:" %><br />
+      <%= f.file_field :ftOng %>
+    </li>
+
+    <li class="inputBox">
+      <%= f.label :bnnr, "Foto del banner:" %><br />
+      <%= f.file_field :bnnr %>
+    </li>
+
+    <!––#Falta poner fecha fund––>
+
+    <li id="submit-user"><%= f.submit "Confirmar Cambios" %>
+  <% end %>
+</div>
