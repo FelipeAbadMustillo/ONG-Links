@@ -32,12 +32,6 @@
     <% end %>
     </li>
 
-    <li class="inputBox"><%= f.number_field :postTime,step:1, placeholder: "Tiempo de visibilidad (en horas)" %>
-    <% @post.errors[:postTime].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
-
     <li class="inputBox"><%= f.number_field :exp,step:10, placeholder: "Experiencia dada" %>
     <% @post.errors[:exp].each do |error| %>
       <span class="error">*<%= error %>
