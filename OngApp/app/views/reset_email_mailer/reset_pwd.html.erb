@@ -1,0 +1,5 @@
+<p>Alguien, esperemos que seas vos, pidio que te mandemos un link para reestablecer tu contraseña:</p>
+
+<p><%= link_to  "Reestablecer mi contraseña", edit_user_password_url(user_id: @user, token: @user.confirmation_token.html_safe) %></p>
+
+<p>Si no pediste este link ignora este mail, tu contraseña y tu cuenta estan a salvo y no fueron cambiados</p>

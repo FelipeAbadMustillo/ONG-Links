@@ -1,6 +1,6 @@
 class OrganizationController < ApplicationController
   before_action :require_adm, only: [:new, :create]
-  before_action :require_ong_login, only: [:index,:edit,:update]
+  before_action :require_ong_login, only: [:index,:edit,:update, :stats]
   before_action :require_login, only: [:show, :sub]
 
   def index
@@ -80,6 +80,20 @@ class OrganizationController < ApplicationController
       flash.now[:error] = 'El número ingresado no es correcto'
       render :action=>'show'
     end
+  end
+
+  def stats
+    @ong=Organization.find(params[:id])
+    if @ong.id != current_ong.id
+      redirect_to organization_index_path
+    end
+    @flws= @ong.follows.order(created_at: :asc).limit(5)
+    @subs=[]
+    @flws.each do |f|
+      @subs << User.find(f.user_id)
+    end
+    @post=@ong.posts.order(cantAct: :desc).first
+    @disp=@ong.posts.where("expired = ?",false)
   end
 
   private

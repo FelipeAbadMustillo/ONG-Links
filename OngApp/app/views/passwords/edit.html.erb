@@ -1,0 +1,9 @@
+<h2>Reestablecer Contraseña:</h2>
+
+<p>Aca podes reestablecer tu contraseña. Escribi tu nueva contraseña en el siguiente espacio.</p>
+
+<%= form_for :password_reset, url: edit_user_password_path(user_id: @user, token: @user.confirmation_token), html: { method: :put } do |f| %>
+  <%= f.password_field :password %>
+
+  <%= f.submit %>
+<% end %>

@@ -9,12 +9,17 @@ Rails.application.routes.draw do
   get '/ong_sign_out' => 'ong_session#destroy'
   patch '/subscribe/:id' => 'organization#sub', :as => :subscribe
   patch '/rate/:id' => 'organization#rate', :as => :rate
+  get '/analytics/:id' => 'organization#stats', :as => :stats
 
   resources :user
   get '/sign_up' => 'user#new'
   get '/sign_in' => 'session#new'
   post '/sign_in' => 'session#create'
   get '/sign_out' => 'session#destroy'
+  get '/resetPwd' => 'passwords#new', :as => :reset
+  post '/resetPwd' => 'passwords#create'
+  get '/edit_user_password' => 'passwords#edit'
+  put '/edit_user_password' => 'passwords#update'
 
   resources :post
   get '/nuevo_post' => 'post#new'
