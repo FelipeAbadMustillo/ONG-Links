@@ -3,66 +3,67 @@
 <% pass ||= false %>
 <div class="container">
   <%= form_for @usuario, url: camino, :html => {:multipart => true} do |f| %>
-
-    <li class="inputBox"><%= f.text_field :nombreUsu, placeholder: "Nombre"%>
-    <% @usuario.errors[:nombreUsu].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
-
-    <li class="inputBox"><%= f.text_field :apellidoUsu, placeholder: "Apellido" %>
-    <% @usuario.errors[:apellidoUsu].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
-
-    <% if pass %>
-      <li class="inputBox"><%= f.password_field :password, placeholder: "Contraseña" %>
-      <% @usuario.errors[:password].each do |error| %>
+    <div class="form">
+      <li class="inputBox"><%= f.text_field :nombreUsu, placeholder: "Nombre",class: "input_text"%>
+      <% @usuario.errors[:nombreUsu].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
       </li>
-      <li class="inputBox"><%= f.email_field :email, placeholder: "Direccion de Mail" %>
-      <% @usuario.errors[:email].each do |error| %>
+
+      <li class="inputBox"><%= f.text_field :apellidoUsu, placeholder: "Apellido",class: "input_text" %>
+      <% @usuario.errors[:apellidoUsu].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
       </li>
-    <% end %>
 
-    <li class="inputBox"><%= f.number_field :edad,step:1, placeholder: "Edad" %>
-    <% @usuario.errors[:edad].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
+      <% if pass %>
+        <li class="inputBox"><%= f.password_field :password, placeholder: "Contraseña",class: "input_text" %>
+        <% @usuario.errors[:password].each do |error| %>
+          <span class="error">*<%= error %>
+        <% end %>
+        </li>
+        <li class="inputBox"><%= f.email_field :email, placeholder: "Direccion de Mail",class: "input_text" %>
+        <% @usuario.errors[:email].each do |error| %>
+          <span class="error">*<%= error %>
+        <% end %>
+        </li>
+      <% end %>
 
-    <li class="inputBox"><%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A" %>
-    <% @usuario.errors[:localidadUsu].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
+      <li class="inputBox"><%= f.number_field :edad,step:1, placeholder: "Edad",class: "input_text" %>
+      <% @usuario.errors[:edad].each do |error| %>
+        <span class="error">*<%= error %>
+      <% end %>
+      </li>
 
-    <li class="inputBox"><%= f.text_field :desc, placeholder: "Descripción" %>
-    <% @usuario.errors[:desc].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
+      <li class="inputBox"><%= f.text_field :localidadUsu, placeholder: "Localidad Ej: C.A.B.A",class: "input_text" %>
+      <% @usuario.errors[:localidadUsu].each do |error| %>
+        <span class="error">*<%= error %>
+      <% end %>
+      </li>
 
-    <li class="inputBox"><%= f.text_field :ocupacion, placeholder: "Ocupacion" %>
-    <% @usuario.errors[:ocupacion].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
+      <li class="inputBox"><%= f.text_field :desc, placeholder: "Descripción",class: "input_text" %>
+      <% @usuario.errors[:desc].each do |error| %>
+        <span class="error">*<%= error %>
+      <% end %>
+      </li>
+
+      <li class="inputBox"><%= f.text_field :ocupacion, placeholder: "Ocupacion",class: "input_text" %>
+      <% @usuario.errors[:ocupacion].each do |error| %>
+        <span class="error">*<%= error %>
+      <% end %>
+      </li>
 
 
-    <li class="inputBox"><%= f.telephone_field :telUsu, placeholder: "Telefono" %>
-    <% @usuario.errors[:telUsu].each do |error| %>
-      <span class="error">*<%= error %>
-    <% end %>
-    </li>
+      <li class="inputBox"><%= f.telephone_field :telUsu, placeholder: "Telefono",class: "input_text" %>
+      <% @usuario.errors[:telUsu].each do |error| %>
+        <span class="error">*<%= error %>
+      <% end %>
+      </li>
 
-    <li class="inputBox"><%= f.file_field :ftUsu %></li>
-    <!––#Falta poner sexo––>
+      <li class="inputBox"><%= f.file_field :ftUsu %></li>
+      <!––#Falta poner sexo––>
 
-    <li id="submit-user"><%= f.submit sub %>
+      <li id="submit-user"><%= f.submit sub, class: "submit" %>
+    </div>
   <% end %>
 </div>
