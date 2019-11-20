@@ -1,6 +1,6 @@
 class UserController < Clearance::UsersController
-  before_action :require_login, only: [:index]
-  before_action :any_logged, except: [:index,:show]
+  before_action :require_login, only: [:index,:edit,:update]
+  before_action :any_logged, except: [:index,:show,:edit,:update]
   before_action :require_ong_login, only: [:show]
   def index
     @usuario=current_user
@@ -36,8 +36,28 @@ class UserController < Clearance::UsersController
     @usuario=User.find(params[:id])
   end
 
+  def edit
+    @usuario=User.find(params[:id])
+    if current_user.id != @usuario.id
+      redirect_to user_index_path
+    end
+  end
+
+  def update
+    @usuario=User.find(params[:id])
+    if current_user.id == @usuario.id
+      if @usuario.update(user_params)
+        redirect_to user_index_path
+      else
+        render :edit
+      end
+    else
+      redirect_to user_index_path
+    end
+  end
+
   private
   def user_params
-    params.require(:user).permit(:nombreUsu,:apellidoUsu,:password,:edad,:ocupacion,:email,:localidadUsu,:telUsu,:desc)
+    params.require(:user).permit(:nombreUsu,:apellidoUsu,:password,:edad,:ocupacion,:email,:localidadUsu,:telUsu,:desc,:ftUsu)
   end
 end

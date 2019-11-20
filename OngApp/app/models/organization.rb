@@ -11,4 +11,7 @@ class Organization < ApplicationRecord
   validates :tel, length: {in:10..13, message: "Ese número de telefono no es valido"}, allow_nil: true
   validates :nombreOng, :desc, length: {maximum: 100,  message: "El valor puesto es demasiado largo"}
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP, message: "Ese no es un mail valido" }, uniqueness: {message: "Ese mail ya esta tomado"}
+
+  mount_uploader :ftOng, ImgMngrUploader
+  mount_uploader :bnnr, ImgMngrUploader
 end

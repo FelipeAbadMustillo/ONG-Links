@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191001034444) do
+ActiveRecord::Schema.define(version: 20191026191149) do
 
   create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.datetime "created_at", null: false
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20191001034444) do
     t.integer "cantMin"
     t.integer "cantMax"
     t.integer "cantAct"
-    t.integer "postTime"
     t.boolean "expired"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,7 +72,7 @@ ActiveRecord::Schema.define(version: 20191001034444) do
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.bigint "organization_id"
     t.bigint "user_id"
-    t.integer "rating"
+    t.float "cant", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_ratings_on_organization_id"

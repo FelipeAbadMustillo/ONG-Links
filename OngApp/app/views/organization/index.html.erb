@@ -1,8 +1,19 @@
+<%= image_tag @ong.bnnr_url.to_s %>
 <h2> <%= @ong.nombreOng %></h2>
+<%= image_tag @ong.ftOng_url.to_s %>
 <p> <%= @ong.desc %></p>
-<%= link_to "Crear un nuevo Post", nuevo_post_path %>
-<%= link_to "Cerrar Sesion", ong_sign_out_path %>
-<h2> Tus posts disponibles:</h2>
+<p>Tu rating promedio: <%= @ong.rating %></p>
+<p>Seguidores: <%= @ong.follows.size %></p>
+<ul>
+  <li><%= link_to "Crear un nuevo Post", nuevo_post_path %></li>
+  <li><%= link_to "Editar tus datos", edit_organization_path(@ong) %></li>
+  <li><%= link_to "Tus estadisticas", stats_path(@ong.id) %></li>
+  <li><%= link_to "Cerrar Sesion", ong_sign_out_path %></li>
+</ul>
+
+
+
+<h2> Tus posts: </h2>
 
 <% @posts.each do |post| %>
   <h2><%= link_to post.title, post_path(post) %></h2>

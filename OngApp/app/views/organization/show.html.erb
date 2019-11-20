@@ -1,5 +1,16 @@
+<%= image_tag @ong.bnnr_url.to_s %>
 <h2> <%= @ong.nombreOng %></h2>
+<%= image_tag @ong.ftOng_url.to_s %>
 <p> <%= @ong.desc %></p>
+<p> Rating: <%= @ong.rating %></p>
+<% if @ong.ratings.exists?(["user_id = ?", current_user.id]) %>
+  <p>Ya rateaste esta ong con <%= current_user.ratings.find_by("organization_id = ?", @ong.id).cant %> puntos</p>
+<% else %>
+  <%= form_tag(rate_path(@ong.id), method: :patch) do %>
+    <%= number_field(:points,nil,min:0,max:5,step: 0.1) %>
+    <%= submit_tag ("Ratear Ong"), name: nil %>
+  <% end %>
+<% end %>
 <% if subscripto?(current_user,@ong) %>
   <p>Estas subscripto a esta ong</p>
 <% else %>

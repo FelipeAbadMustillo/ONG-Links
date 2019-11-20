@@ -1,0 +1,10 @@
+<%= link_to "Volver", sign_in_path %>
+<h2>Olvidaste tu contraseña?</h2>
+
+<p>Una vez ingresado tu mail te enviaremos un link (a la direcccion que ingresaste) con el cual podras reestablecer tu contraseña</p>
+
+<%= form_for :password do |f| %>
+  <%= f.email_field :email, placeholder: "Direccion de Mail" %>
+
+  <%= f.submit %>
+<% end %>
