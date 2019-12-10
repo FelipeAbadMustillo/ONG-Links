@@ -2,10 +2,23 @@ window.Login = createReactClass(
 {
   getInitialState: function()
   {
+    var type={};
+    if (this.props.ong)
+    {
+      type["adr"]="/ong_sign_in";
+      type["name"]="Organización";
+    }
+    else
+    {
+      type["adr"]="/sign_in";
+      type["name"]="Usuario";
+    }
     return(
     {
       email: '',
-      password: ''
+      password: '',
+      adress: type["adr"],
+      title: type["name"]
     });
   },
 
@@ -17,15 +30,15 @@ window.Login = createReactClass(
   handleFormSubmit: function()
   {
     var user_info = {email: this.state.email, password: this.state.password}
-    $.post('/sign_in',{session: user_info});
-    //no anda porque no tiene jquery
+    $.post(this.state.adress,{session: user_info});
+    //hacer un response piola
   },
 
   render: function()
   {
     return(
       <div>
-        <h1>Iniciar sesión: Usuario</h1>
+        <h1>Iniciar sesión: {this.state.title}</h1>
         <LoginForm email_val={this.state.email} pass_val={this.state.password}
           onUserInput={this.handleUserInput} onFormSubmit={this.handleFormSubmit} />
       </div>

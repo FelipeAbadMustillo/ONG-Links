@@ -1,12 +1,5 @@
-<!--<%= react_component 'Login' %>no anda porque no tiene jquery-->
-<h1>Iniciar sesión: Usuario</h1>
-<%= form_for :session do |f| %>
-  <div class="form">
-    <%= f.text_field :email, type: 'email', placeholder: "Direccion de Email", class: "input_text" %>
-    <%= f.password_field :password, placeholder: "Contraseña", class: "input_text" %>
-    <%= f.submit "Iniciar Sesión", class: "submit" %>
-  </div>
-<% end %>
+<%= react_component 'Login', ong: false %>
+<!-- alindar esto porfavor -->
 <ul>
   <li><%= link_to "Olvidaste tu contraseña?", reset_path %></li>
   <li><%= link_to "No tenés una cuenta? Registrate", sign_up_path %></li>

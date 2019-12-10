@@ -1,10 +1,6 @@
-<h1 class="login">Iniciar Sesión: Organización</h1>
-<%= form_for :ong_session do |f| %>
-  <div class="form">
-    <%= f.text_field :email, type: 'email',class: "input_text" %>
-    <%= f.password_field :password,class: "input_text" %>
-    <%= f.submit "Log In", class: "submit" %>
-  </div>
-<% end %>
-<span>No tienes una cuenta? Registra tu Ong <%= link_to "Aquí", ong_sign_up_path %></span>
-<%= link_to "Eres un Usuario?", sign_in_path %>
+<%= react_component 'Login', ong: true %>
+<!-- alindar esto porfavor -->
+<ul>
+  <li>No tienes una cuenta? Registra tu Ong <%= link_to "Aquí", ong_sign_up_path %></li>
+  <li><%= link_to "Eres un Usuario?", sign_in_path %></li>
+</ul>

@@ -22,6 +22,6 @@ class OngSessionController < ApplicationController
 
   private
   def ong_params
-    params.require(:ong_session).permit(:password,:email)
+    params.require(:session).permit(:password,:email)
   end
 end
