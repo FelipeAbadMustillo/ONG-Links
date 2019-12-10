@@ -12,6 +12,7 @@ class OngSessionController < ApplicationController
     else
       flash.now[:alert] = "La contraseña o el mail son incorrectos"
       render "new"
+      #aca iria lo de la response
     end
   end
 

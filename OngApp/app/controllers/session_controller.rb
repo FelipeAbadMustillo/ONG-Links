@@ -12,6 +12,7 @@ class SessionController < Clearance::SessionsController
       else
         flash.now.alert = status.failure_message
         render template: "session/new", status: :unauthorized
+        #aca iria lo de la response
       end
     end
   end

@@ -14,6 +14,7 @@ class PostController < ApplicationController
       redirect_to organization_index_path
     else
       render "new"
+      #aca iria lo de la response
     end
   end
 
@@ -73,7 +74,7 @@ class PostController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:descPst,:lugar,:cantMin,:cantMax,:postTime,:hora,:title,:exp)
+    params.require(:post).permit(:title,:descPst,:lugar,:cantMin,:cantMax,:exp,:hora,:ftPst)
   end
 
 end

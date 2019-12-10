@@ -17,12 +17,12 @@ window.LoginForm = createReactClass(
   {
     return(
       <form onSubmit={this.handleSubmit}>
-        <div class="form">
-          <input class='input_text' name='email' placeholder='Dirección de E-Mail' value={this.props.email_val}
+        <div className="form">
+          <input className='input_text' name='email' placeholder='Dirección de E-Mail' value={this.props.email_val}
             onChange={this.handleChange} />
-          <input class='input_text' name='password' placeholder='Contraseña' type='password' value={this.props.pass_val}
+          <input className='input_text' name='password' placeholder='Contraseña' type='password' value={this.props.pass_val}
             onChange={this.handleChange} />
-          <input class='submit' type='submit' value='Iniciar Sesión'/>
+          <input className='submit' type='submit' value='Iniciar Sesión'/>
         </div>
       </form>
     )

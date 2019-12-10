@@ -26,6 +26,4 @@ Rails.application.routes.draw do
   patch '/terminar_post/:id' => 'post#release', :as => :terminar_post
 
   delete '/eliminar_appointment' => 'appointment#destroy', :as => :eliminar_appointment
-
-
 end
