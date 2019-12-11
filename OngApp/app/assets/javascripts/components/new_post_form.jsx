@@ -7,6 +7,16 @@ window.NewPostForm = createReactClass(
     this.props.onUserInput(chg);
   },
 
+  handleDateChange: function(e)
+  {
+    var name='hora';
+    var chg={};
+    if(chg[name] = e.toDate())
+    {
+      this.props.onUserInput(chg);
+    }
+  },
+
   handleSubmit: function(e)
   {
     e.preventDefault();
@@ -15,8 +25,9 @@ window.NewPostForm = createReactClass(
 
   render: function()
   {
+    var inputProps={name: 'hora'};
     return(
-      <form onSubmit={this.handleSubmit}>
+      <form encType='multipart/form-data' onSubmit={this.handleSubmit}>
         <div className="form">
           <input className='input_text' name='title' placeholder='Título' value={this.props.init_title}
             onChange={this.handleChange} />
@@ -32,7 +43,13 @@ window.NewPostForm = createReactClass(
           <input type='number' step='10' min='0' className='input_text' name='exp' placeholder='Experiencia dada' value={this.props.init_exp}
             onChange={this.handleChange} />
 
-          //falta poner fecha e imagen
+          <Datetime input={false} open={true} inputProps={inputProps} value={this.props.init_hora}
+            onChange={this.handleDateChange} />
+
+          //descentrar el label y decorar el seleccionar archivo
+          <label>Imagen de la actividad:</label>
+          <input type="file" name="ftPst"
+            onChange={this.handleChange} />
 
           <input className='submit' type='submit' value='Postear'/>
         </div>
