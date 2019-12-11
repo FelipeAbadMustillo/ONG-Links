@@ -53,7 +53,7 @@ class PostController < ApplicationController
         flash.now[:error] = 'ya te enlistaste a esta actividad o está llena'
         render "show"
       end
-    end #aca iria elsif current_ong y el update normal
+    end
   end
 
   def release

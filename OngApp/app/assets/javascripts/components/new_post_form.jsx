@@ -17,6 +17,20 @@ window.NewPostForm = createReactClass(
     }
   },
 
+  handleImgChange: function(files)
+  {
+    if (files && files[0])
+    {
+      let imgFormat = new FormData();
+      imgFormat.append('ftPst', files[0]);
+      console.log(imgFormat);
+      this.props.onUserInput(imgFormat);
+      /*var imgFormat = {};
+      imgFormat['ftPst']=files[0];
+      this.props.onUserInput(imgFormat);*/
+    }
+  },
+
   handleSubmit: function(e)
   {
     e.preventDefault();
@@ -45,11 +59,6 @@ window.NewPostForm = createReactClass(
 
           <Datetime input={false} open={true} inputProps={inputProps} value={this.props.init_hora}
             onChange={this.handleDateChange} />
-
-          //descentrar el label y decorar el seleccionar archivo
-          <label>Imagen de la actividad:</label>
-          <input type="file" name="ftPst"
-            onChange={this.handleChange} />
 
           <input className='submit' type='submit' value='Postear'/>
         </div>
