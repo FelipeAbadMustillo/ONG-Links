@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/resetPwd' => 'passwords#create'
   get '/edit_user_password' => 'passwords#edit'
   put '/edit_user_password' => 'passwords#update'
+  get '/search' => 'user#search'
 
   resources :post
   get '/nuevo_post' => 'post#new'

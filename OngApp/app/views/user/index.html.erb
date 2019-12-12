@@ -2,19 +2,4 @@
 <%= link_to "Editar usuario", edit_user_path(@usuario) %>
 <%= link_to "Cerrar Sesion", sign_out_path %>
 <%= react_component 'NewsUser', latest: @lastPost, names: @ongNames %>
-
-<div>
-  <h3> Buscar Ongs: </h3>
-  <%= form_tag(user_index_path, method: :get) do %>
-    <%= text_field_tag(:search, params[:search]) %>
-    <%= submit_tag ("Buscar"), name: nil %>
-  <% end %>
-
-  <% if @ongs %>
-    <% @ongs.each do |ong| %>
-      <li><%= link_to ong.nombreOng, organization_path(ong) %></li>
-    <% end %>
-  <% else %>
-    <span> Busca Ongs para poder suscribirte a ellas y enlistarte en sus actividades! </span>
-  <% end %>
-</div>
+<%= react_component 'OngSearch' %>

@@ -1,7 +1,8 @@
 class UserController < Clearance::UsersController
-  before_action :require_login, only: [:index,:edit,:update]
-  before_action :any_logged, except: [:index,:show,:edit,:update]
+  before_action :require_login, only: [:search,:index,:edit,:update]
+  before_action :any_logged, except: [:search,:index,:show,:edit,:update]
   before_action :require_ong_login, only: [:show]
+
   def index
     @usuario=current_user
 
@@ -11,12 +12,6 @@ class UserController < Clearance::UsersController
       ong=Organization.find(fw.organization_id)
       @ongNames<< ong.nombreOng
       @lastPost<< ong.posts.order("created_at").last
-    end
-
-    if params[:search]
-      @ongs=Organization.where("nombreOng LIKE ?" , "%#{params[:search]}%")
-    else
-      @ongs=nil
     end
   end
 
@@ -58,6 +53,15 @@ class UserController < Clearance::UsersController
     else
       redirect_to user_index_path
     end
+  end
+
+  def search
+    if params[:search]
+      @ongs=Organization.where("nombreOng LIKE ?" , "%#{params[:search]}%")
+    else
+      @ongs=nil
+    end
+    render json: @ongs
   end
 
   private
