@@ -4,17 +4,19 @@ class UserController < Clearance::UsersController
   before_action :require_ong_login, only: [:show]
   def index
     @usuario=current_user
-    if params[:search]
-      @ongs=Organization.where("nombreOng LIKE ?" , "%#{params[:search]}%")
-    else
-      @ongs=nil
-    end
+
     @lastPost=[]
     @ongNames=[]
     current_user.follows.each do |fw|
       ong=Organization.find(fw.organization_id)
       @ongNames<< ong.nombreOng
       @lastPost<< ong.posts.order("created_at").last
+    end
+
+    if params[:search]
+      @ongs=Organization.where("nombreOng LIKE ?" , "%#{params[:search]}%")
+    else
+      @ongs=nil
     end
   end
 

@@ -2,19 +2,19 @@ window.PostList = createReactClass({
   listing: function()
   {
     let l=[];
+    let n=this.props.owners;
     this.props.posts.forEach(function(post,i)
     {
       if(post)
       {
-        l.push(<MinPost data={post} owner={this.props.owners[i]} />);
+        l.push(<MinPost key={i} data={post} owner={n[i]} />);
       }
     });
-    return l;
+    return (l);
   },
 
   render: function()
   {
-    console.log(this.listing);
-    return(<div>{this.listing}</div>);
+    return(<div>{this.listing()}</div>);
   }
 });

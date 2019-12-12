@@ -2,19 +2,6 @@
 <%= link_to "Editar usuario", edit_user_path(@usuario) %>
 <%= link_to "Cerrar Sesion", sign_out_path %>
 <%= react_component 'NewsUser', latest: @lastPost, names: @ongNames %>
-<div>
-  <h3> Ultimos posts de tus subscripciones: </h3>
-  <ul>
-    <% @lastPost.each do |post| %>
-      <% if post %>
-        <li>
-            <h4><%= link_to post.organization.nombreOng, organization_path(post.organization.id)  %>: </h4>
-            <p><%= link_to post.title, post_path(post.id) %> </p>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
-</div>
 
 <div>
   <h3> Buscar Ongs: </h3>

@@ -3,7 +3,7 @@ window.NewsUser = createReactClass({
   {
     return(
       <div>
-        <h3> Ultimos posts de tus subscripciones: </h3>
+        <h2> Ultimos posts de tus subscripciones: </h2>
         <PostList posts={this.props.latest} owners={this.props.names} />
       </div>
     );
