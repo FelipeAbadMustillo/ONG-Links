@@ -1,3 +1,65 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#data-minUsr
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+#expanded
+{
+  width: 27em;
+  color: #7622ab;
+}
+
+.usrName
+{
+  color: black;
+  font-size: 1.5em;
+}
+
+.extraData
+{
+  color: #997fad;
+}
+
+.avatar
+{
+  width: 5em;
+  height: 5em;
+  border-radius: 0.5em;
+}
+
+.desc
+{
+  margin-bottom: 0.25em;
+  height: 7em;
+  border-style: solid;
+  border-color: #a412ff;
+  border-width: 1px;
+  border-radius: 1em;
+  overflow-wrap: break-word;
+  padding: 1em;
+}
+
+.center
+{
+  margin: auto;
+}
+
+.acciones
+{
+  display: block;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-left: 0;
+  border-right: 0;
+  border-color: grey;
+  margin:1em 0;
+  padding: 0.5em 0;
+  text-decoration: none;
+}

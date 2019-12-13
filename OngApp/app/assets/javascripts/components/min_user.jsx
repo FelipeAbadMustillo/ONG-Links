@@ -7,11 +7,11 @@ window.MinUser = createReactClass({
       url=this.props.img.url;
     }
     return(
-      <div>
-        <img src={url} />
-        <div>
-          <span>{this.props.name} {this.props.surName}</span>
-          <span>Experiencia: {this.props.lvl}</span>
+      <div className='container'>
+        <img className='avatar' src={url} />
+        <div id='data-minUsr' >
+          <strong className='usrName'>{this.props.name} {this.props.surName}</strong>
+          <span className='extraData'>Experiencia: {this.props.lvl}</span>
         </div>
       </div>
     );
