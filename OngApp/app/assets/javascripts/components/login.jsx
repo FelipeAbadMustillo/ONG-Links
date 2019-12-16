@@ -6,19 +6,25 @@ window.Login = createReactClass(
     if (this.props.ong)
     {
       type["adr"]="/ong_sign_in";
-      type["name"]="Organización";
+      type["chg"]="¿Eres un usuario normal?";
+      type["placeHolder"]="Gmail oficial ONG";
+      type["chgLink"]="/sign_in";
     }
     else
     {
       type["adr"]="/sign_in";
-      type["name"]="Usuario";
+      type["chg"]="¿Eres una ONG?";
+      type["placeHolder"]="Gmail";
+      type["chgLink"]="/ong_sign_in";
     }
     return(
     {
       email: '',
       password: '',
       adress: type["adr"],
-      title: type["name"]
+      title: type["chg"],
+      mailTxt: type["placeHolder"],
+      titleLink: type["chgLink"]
     });
   },
 
@@ -38,8 +44,11 @@ window.Login = createReactClass(
   {
     return(
       <div>
-        <h1>Iniciar sesión: {this.state.title}</h1>
-        <LoginForm email_val={this.state.email} pass_val={this.state.password}
+        <div className='header'></div>
+        <div className='imgCont'>
+          <img className='imgLogin' src='/assets/logo_completo.png' />
+        </div>
+        <LoginForm email_val={this.state.email} pass_val={this.state.password} chg_txt={this.state.title} chg_url={this.state.titleLink} email_placeholder={this.state.mailTxt}
           onUserInput={this.handleUserInput} onFormSubmit={this.handleFormSubmit} />
       </div>
     )

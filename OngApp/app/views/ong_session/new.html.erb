@@ -1,6 +1,4 @@
 <%= react_component 'Login', ong: true %>
-<!-- alindar esto porfavor -->
-<ul>
-  <li>No tienes una cuenta? Registra tu Ong <%= link_to "Aquí", ong_sign_up_path %></li>
-  <li><%= link_to "Eres un Usuario?", sign_in_path %></li>
-</ul>
+<div class="register">
+  ¿No tienes una cuenta? Registrate <br> <%= link_to "aqui", ong_sign_up_path, id: 'registerTxt' %>
+</div>
