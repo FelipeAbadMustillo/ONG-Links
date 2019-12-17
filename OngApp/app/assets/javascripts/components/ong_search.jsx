@@ -26,7 +26,7 @@ window.OngSearch = createReactClass({
   {
     return(
       <div>
-        <h3> Buscar Ongs: </h3>
+        <span id='title-search'> Buscar Ongs: </span>
         <SearchForm init_input={this.state.input} onUserInput={this.handleUserInput} onFormSubmit={this.handleFormSubmit} />
         <OngList ongs={this.state.results} />
       </div>

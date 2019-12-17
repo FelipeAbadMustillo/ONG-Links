@@ -15,7 +15,7 @@
  */
 body
 {
-  color: #bf59ff;
+  color: black;
   margin:0;
 }
 
@@ -31,6 +31,7 @@ h1
   height: 3em;
   background-color: #946eff;
   box-shadow:0 0.1em 10px 0.1em grey;
+  margin-bottom: 1.5em;
 }
 
 .form
@@ -84,13 +85,4 @@ input
   background-color: white;
   color: rgb(215, 175, 222);
   border: 0.08em solid rgb(215, 175, 222);
-}
-
-.container
-{
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 25em;
-  margin: auto;
 }

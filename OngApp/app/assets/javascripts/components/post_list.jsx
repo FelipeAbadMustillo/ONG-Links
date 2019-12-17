@@ -7,7 +7,7 @@ window.PostList = createReactClass({
     {
       if(post)
       {
-        l.push(<MinPost key={i} data={post} owner={n[i]} />);
+        l.push(<MinPost key={i} data={post} owner={n[i]}/>);
       }
     });
     return (l);
@@ -15,6 +15,6 @@ window.PostList = createReactClass({
 
   render: function()
   {
-    return(<div>{this.listing()}</div>);
+    return(<div className='post-list'>{this.listing()}</div>);
   }
 });

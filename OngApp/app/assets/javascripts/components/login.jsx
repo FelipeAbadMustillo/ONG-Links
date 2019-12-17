@@ -44,7 +44,6 @@ window.Login = createReactClass(
   {
     return(
       <div>
-        <div className='header'></div>
         <div className='imgCont'>
           <img className='imgLogin' src='/assets/logo_completo.png' />
         </div>

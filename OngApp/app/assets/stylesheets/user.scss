@@ -1,6 +1,7 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 #data-minUsr
 {
   display: flex;
@@ -11,8 +12,17 @@
 
 #expanded
 {
-  width: 27em;
-  color: #7622ab;
+  margin:auto auto 2em auto;
+  width: 90%;
+}
+
+.container
+{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: auto;
 }
 
 .usrName
@@ -45,15 +55,11 @@
   padding: 1em;
 }
 
-.center
-{
-  margin: auto;
-}
-
 .acciones
 {
-  display: block;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-style: solid;
   border-width: 1px;
   border-left: 0;
@@ -61,5 +67,16 @@
   border-color: grey;
   margin:1em 0;
   padding: 0.5em 0;
+}
+
+.acciones a
+{
   text-decoration: none;
+}
+
+.icon
+{
+  width: 1.5em;
+  height: auto;
+  margin: 0 0.5em;
 }

@@ -2,7 +2,7 @@ window.ExpandedUser = createReactClass({
   render: function()
   {
     return(
-      <div className='center' id='expanded'>
+      <div id='expanded'>
         <p className='desc'>{this.props.desc}</p>
         <ul>
           <li>Edad: {this.props.years}</li>

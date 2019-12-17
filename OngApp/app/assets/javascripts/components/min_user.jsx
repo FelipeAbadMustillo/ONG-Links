@@ -6,6 +6,11 @@ window.MinUser = createReactClass({
     {
       url=this.props.img.url;
     }
+    else
+    {
+      url='/assets/default-user.png';
+    }
+    
     return(
       <div className='container'>
         <img className='avatar' src={url} />

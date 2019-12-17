@@ -16,10 +16,10 @@ window.SearchForm = createReactClass({
   {
     return(
       <form onSubmit={this.handleSubmit}>
-        <div className="form">
-          <input className='input_text' name='input' placeholder='Buscar Aquí...' value={this.props.init_input}
+        <div className="search">
+          <input className='input_search' name='input' placeholder='Buscar Aquí...' value={this.props.init_input}
             onChange={this.handleChange} />
-          <input className='submit' type='submit' value='Buscar'/>
+          <input className='submit-search' type='submit' value='Buscar'/>
         </div>
       </form>
     );

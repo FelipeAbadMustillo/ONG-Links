@@ -16,11 +16,11 @@ window.MinPost = createReactClass({
     }
 
     return(
-      <div>
-        <h3> <a href={'/organization/' + this.props.data.organization_id}> {this.props.owner} </a> </h3>
-        <a href={'/post/' + this.props.data.id}> {this.props.data.title} </a>
-        <p>{msj}</p>
-        <span>Locación: {this.props.data.lugar}</span>
+      <div className='min-post'>
+        <strong> <a id='title-post' href={'/post/' + this.props.data.id}> {this.props.data.title}: </a> </strong>
+        <a href={'/organization/' + this.props.data.organization_id}> Ong: {this.props.owner} </a>
+        <p>Descripción: {this.props.data.descPst}</p>
+        <span>{msj}</span>
       </div>
     );
   }

@@ -4,7 +4,7 @@ window.OngList = createReactClass({
     if(this.props.ongs)
     {
       return(
-        <div>
+        <div className='ong-list'>
           {this.props.ongs.map(function(ong)
             {
               return(
@@ -18,7 +18,7 @@ window.OngList = createReactClass({
     else
     {
       return(
-        <p> Busca Ongs para poder suscribirte a ellas y enlistarte en sus actividades! </p>
+        <p id='msg-notFound'> Busca Ongs para poder suscribirte a ellas y enlistarte en sus actividades! </p>
       );
     }
   }
