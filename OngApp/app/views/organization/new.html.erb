@@ -2,31 +2,27 @@
 <div class="container">
   <%= form_for @ong, url: organization_index_path do |f| %>
     <div class="form">
-      <li class="inputBox"><%= f.text_field :nombreOng, placeholder: "Nombre",class: "input_text"%>
+      <%= f.text_field :nombreOng, placeholder: "Nombre",class: "input_text"%>
       <% @ong.errors[:nombreOng].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox"><%= f.password_field :password, placeholder: "Contraseña",class: "input_text" %>
+      <%= f.password_field :password, placeholder: "Contraseña",class: "input_text" %>
       <% @ong.errors[:password].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox"><%= f.email_field :email, placeholder: "Direccion de Mail",class: "input_text" %>
+      <%= f.email_field :email, placeholder: "Direccion de Mail",class: "input_text" %>
       <% @ong.errors[:email].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox"><%= f.telephone_field :tel, placeholder: "Telefono",class: "input_text" %>
+      <%= f.telephone_field :tel, placeholder: "Telefono",class: "input_text" %>
       <% @ong.errors[:tel].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li id="submit-user"><%= f.submit "Registarse", class: "submit" %>
+      <%= f.submit "Registarse", class: "submit" %>
     </div>
   <% end %>
 </div>

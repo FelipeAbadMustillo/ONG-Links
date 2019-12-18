@@ -8,7 +8,7 @@ window.PostList = createReactClass({
     {
       if(post)
       {
-        if(n)
+        if(n!='show' && n)
         {
           l.push(<MinPost key={i} data={post} owner={n[i]}/>);
         }
@@ -18,7 +18,7 @@ window.PostList = createReactClass({
         }
       }
     });
-    
+
     return (l);
   },
 

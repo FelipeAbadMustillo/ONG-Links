@@ -24,6 +24,11 @@ class OrganizationController < ApplicationController
 
   def show
       @ong=Organization.find(params[:id])
+      @rate = nil
+      if @ong.ratings.exists?(["user_id = ?", current_user.id])
+        @rate = current_user.ratings.find_by("organization_id = ?", @ong.id).cant
+      end
+      @subeado=subscripto?(current_user,@ong)
   end
 
   def edit
@@ -64,7 +69,7 @@ class OrganizationController < ApplicationController
     @ong=Organization.find(params[:id])
     current_user.ratings<<@rtng
     @ong.ratings<<@rtng
-    @rtng.cant=params[:points][0]
+    @rtng.cant=params[:points]
     if @rtng.save
       total=0
       @ong.ratings.each do |rati|

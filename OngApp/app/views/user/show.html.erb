@@ -1,4 +1,1 @@
-<h2> El es <%= @usuario.nombreUsu %> ,<%= @usuario.apellidoUsu %> </h2>
-<%= image_tag @usuario.ftUsu_url.to_s %>
-<h2> <%= @usuario.desc %> </h2>
-<span> <%= @usuario.exp %> </span>
+<%= react_component 'InfoUser', user: @usuario , show: true%>

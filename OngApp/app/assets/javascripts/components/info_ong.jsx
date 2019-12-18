@@ -6,7 +6,7 @@ window.InfoOng = createReactClass({
     return(
       <div className='ong-data'>
         <OngData banner={this.props.ong.bnnr} img={this.props.ong.ftOng} name={this.props.ong.nombreOng} follows={this.props.seguidores}
-        description={this.props.ong.desc} rate={this.props.ong.rating} mail={this.props.ong.email} place={this.props.ong.sede} />
+        description={this.props.ong.desc} rate={this.props.ong.rating} mail={this.props.ong.email} place={this.props.ong.sede} usr={false} />
 
         <div id="stats-post">
           <div className="acciones" id='stats'>

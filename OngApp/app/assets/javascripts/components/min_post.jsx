@@ -24,7 +24,11 @@ window.MinPost = createReactClass({
       msj='Se enlistaron ' + this.props.data.cantAct + ' personas a esta actividad';
     }
 
-    if(this.props.owner)
+    if(this.props.owner=='show')
+    {
+      link=null;
+    }
+    else if(this.props.owner)
     {
       link= <a href={'/organization/' + this.props.data.organization_id}> Ong: {this.props.owner} </a>;
     }

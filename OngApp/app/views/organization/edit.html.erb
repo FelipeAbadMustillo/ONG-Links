@@ -2,43 +2,35 @@
 <div class="container">
   <%= form_for @ong, url: organization_path(@ong), :html => {:multipart => true} do |f| %>
     <div class="form">
-      <li class="inputBox"><%= f.text_field :nombreOng, placeholder: "Nombre",class: "input_text"%>
+      <%= f.text_field :nombreOng, placeholder: "Nombre",class: "input_text"%>
       <% @ong.errors[:nombreOng].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox"><%= f.telephone_field :tel, placeholder: "Telefono",class: "input_text" %>
+      <%= f.telephone_field :tel, placeholder: "Telefono",class: "input_text" %>
       <% @ong.errors[:tel].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox"><%= f.text_field :desc, placeholder: "Descripción",class: "input_text" %>
+      <%= f.text_field :desc, placeholder: "Descripción",class: "input_text" %>
       <% @ong.errors[:desc].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox"><%= f.text_field :sede, placeholder: "Lugar de la sede",class: "input_text" %>
+      <%= f.text_field :sede, placeholder: "Lugar de la sede",class: "input_text" %>
       <% @ong.errors[:sede].each do |error| %>
         <span class="error">*<%= error %>
       <% end %>
-      </li>
 
-      <li class="inputBox">
-        <%= f.label :ftOng, "Foto de perfil:" %><br />
-        <%= f.file_field :ftOng %>
-      </li>
+      <%= f.label :ftOng, "Foto de perfil:" %><br />
+      <%= f.file_field :ftOng %>
 
-      <li class="inputBox">
-        <%= f.label :bnnr, "Foto del banner:" %><br />
-        <%= f.file_field :bnnr %>
-      </li>
+      <%= f.label :bnnr, "Foto del banner:" %><br />
+      <%= f.file_field :bnnr %>
 
       <!––#Falta poner fecha fund––>
 
-      <li id="submit-user"><%= f.submit "Confirmar Cambios", class: "submit" %>
+      <%= f.submit "Confirmar Cambios", class: "submit" %>
     </div>
   <% end %>
 </div>
