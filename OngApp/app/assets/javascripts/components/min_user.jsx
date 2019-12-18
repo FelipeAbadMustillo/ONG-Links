@@ -10,9 +10,9 @@ window.MinUser = createReactClass({
     {
       url='/assets/default-user.png';
     }
-    
+
     return(
-      <div className='container'>
+      <div className='container' id='avatar-usr'>
         <img className='avatar' src={url} />
         <div id='data-minUsr' >
           <strong className='usrName'>{this.props.name} {this.props.surName}</strong>

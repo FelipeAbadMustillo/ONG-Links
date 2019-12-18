@@ -3,13 +3,22 @@ window.PostList = createReactClass({
   {
     let l=[];
     let n=this.props.owners;
+
     this.props.posts.forEach(function(post,i)
     {
       if(post)
       {
-        l.push(<MinPost key={i} data={post} owner={n[i]}/>);
+        if(n)
+        {
+          l.push(<MinPost key={i} data={post} owner={n[i]}/>);
+        }
+        else
+        {
+          l.push(<MinPost key={i} data={post} owner={n} />);
+        }
       }
     });
+    
     return (l);
   },
 

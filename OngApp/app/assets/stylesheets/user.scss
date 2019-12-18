@@ -1,6 +1,10 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#avatar-usr
+{
+  margin-top: 1.5em;
+}
 
 #data-minUsr
 {
@@ -65,7 +69,7 @@
   border-left: 0;
   border-right: 0;
   border-color: grey;
-  margin:1em 0;
+  margin:0;
   padding: 0.5em 0;
 }
 
@@ -77,6 +81,6 @@
 .icon
 {
   width: 1.5em;
-  height: auto;
+  height: 1.5em;
   margin: 0 0.5em;
 }
