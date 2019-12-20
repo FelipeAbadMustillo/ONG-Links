@@ -27,8 +27,10 @@ class PostController < ApplicationController
     if signed_in? || current_ong
       @post=Post.find(params[:id])
       @users=[]
-      @post.appointments.each do |ap|
-        @users << User.find(ap.user_id)
+      if current_ong
+        @post.appointments.each do |ap|
+          @users << User.find(ap.user_id)
+        end
       end
     else
       redirect_to root_url

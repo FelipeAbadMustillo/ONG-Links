@@ -14,6 +14,33 @@
 {
   text-align: center;
   color: #a133d4;
+  font-size: 2em;
+}
+
+#descPost
+{
+  margin: 0;
+  overflow-wrap: break-word;
+  width: 90%;
+  text-align: center;
+}
+
+#icon-location
+{
+  width: 1.25em;
+  height: 1.25em;
+  margin: 0;
+}
+
+#anotarse
+{
+  width: 7em;
+  height: 2em;
+}
+
+#boton-anotarse
+{
+  text-align: center;
 }
 
 .post-list
@@ -56,4 +83,97 @@
 .min-post span
 {
   color: #f0bb0e;
+}
+
+.post-container
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  height: 30em;
+}
+
+.mono-cont
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 3em;
+}
+
+.multi-cont
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: inherit;
+}
+
+.terminar-boton
+{
+  text-align: center;
+  width: 10em;
+  height: 2.5em;
+  padding: 0.25em 0.5em;
+  background-color: #8b3ef0;
+  color: white;
+  border: 0.08em solid white;
+  border-radius: 1.5em;
+  text-decoration: none;
+  transition-duration: 0.3s;
+}
+
+.terminar-boton:hover
+{
+  background-color: white;
+  color: rgb(215, 175, 222);
+  border: 0.08em solid rgb(215, 175, 222);
+}
+
+.cont-terminar
+{
+  text-align: center;
+}
+
+.cont-accion
+{
+  width: 90%;
+  margin: auto;
+}
+
+.user-cont
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-cont .container
+{
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+.user-cont .avatar
+{
+  width: 3em;
+  height: 3em;
+}
+
+.user-cont #data-minUsr a
+{
+  font-size: 0.6em;
+  text-decoration: none;
+}
+
+#eliminar-usu
+{
+  font-size: 0.75em;
+  width: 6em;
+  height: 2.5em;
 }
