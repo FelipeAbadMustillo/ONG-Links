@@ -51,6 +51,4 @@ test:
 #
 production:
   <<: *default
-  database: OngDB_prod
-  username: OngApp
-  password: <%= ENV['ONGAPP_DATABASE_PASSWORD'] %>
+  database: egKltUOsRC
