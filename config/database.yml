@@ -52,3 +52,4 @@ test:
 production:
   <<: *default
   database: K2kQlmNUVF
+  url: mysql2://K2kQlmNUVF:E11CD8CBeQ@remotemysql.com:3306/K2kQlmNUVF
