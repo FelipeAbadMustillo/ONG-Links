@@ -13,22 +13,22 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: egKltUOsRC
-  password: P2bM7FK823
+  username: K2kQlmNUVF
+  password: E11CD8CBeQ
   host: remotemysql.com
   port: 3306
   sslmode: prefer
 
 development:
   <<: *default
-  database: egKltUOsRC
+  database: K2kQlmNUVF
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: OngDB_test
+  database: K2kQlmNUVF
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,4 +51,4 @@ test:
 #
 production:
   <<: *default
-  database: egKltUOsRC
+  database: K2kQlmNUVF
