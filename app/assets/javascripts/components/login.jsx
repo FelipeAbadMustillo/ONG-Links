@@ -45,7 +45,7 @@ window.Login = createReactClass(
     return(
       <div>
         <div className='imgCont'>
-          <img className='imgLogin' src='/assets/images/logo_completo.png' />
+          <img className='imgLogin' src='app/assets/images/images/logo_completo.png' />
         </div>
         <LoginForm email_val={this.state.email} pass_val={this.state.password} chg_txt={this.state.title} chg_url={this.state.titleLink} email_placeholder={this.state.mailTxt}
           onUserInput={this.handleUserInput} onFormSubmit={this.handleFormSubmit} />
