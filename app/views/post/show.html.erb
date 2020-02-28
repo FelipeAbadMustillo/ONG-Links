@@ -1,6 +1,8 @@
 <% if current_ong %>
+  <%= react_component 'BackButton', ong: true %>
   <%= react_component 'PostShow', post: @post, ong: {owner: current_ong.posts.exists?(@post.id), users: @users} %>
 <% elsif current_user %>
+  <%= react_component 'BackButton', ong: false %>
   <%= react_component 'PostShow', post: @post, user: {enlistado: enlistado?(current_user,@post)} %>
 <% else %>
   <%= react_component 'PostShow', post: @post %>

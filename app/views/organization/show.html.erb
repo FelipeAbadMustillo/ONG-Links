@@ -1,3 +1,4 @@
+<%= react_component 'BackButton', ong: false %>
 <%= react_component 'OngData', id: @ong.id, banner: @ong.bnnr, img: @ong.ftOng, name: @ong.nombreOng, follows: @ong.follows.size, description: @ong.desc, rate: @rate, mail: @ong.email, place: @ong.sede, usr: true, sub: @subeado  %>
 <h2 id='news-title'> Post disponibles</h2>
 <%= react_component 'PostList', posts: @ong.posts, owners: 'show' %>

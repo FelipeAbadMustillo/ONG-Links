@@ -86,3 +86,8 @@ input
   color: rgb(215, 175, 222);
   border: 0.08em solid rgb(215, 175, 222);
 }
+
+.backButton
+{
+  margin-top: 0.5em;
+}
