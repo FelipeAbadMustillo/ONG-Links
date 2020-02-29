@@ -91,3 +91,10 @@ input
 {
   margin-top: 0.5em;
 }
+
+.title
+{
+  text-align: center;
+  color: #a133d4;
+  font-size: 2em;
+}

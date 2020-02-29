@@ -1,10 +1,12 @@
-<%= link_to "Volver", sign_in_path %>
-<h2>Olvidaste tu contraseña?</h2>
+<%= react_component 'BackButton', ong: "/" %>
+<h1 class="title">Olvidaste tu contraseña?</h1>
 
-<p>Una vez ingresado tu mail te enviaremos un link (a la direcccion que ingresaste) con el cual podras reestablecer tu contraseña</p>
+<p class="desc">Una vez ingresado tu mail te enviaremos un link (a la direcccion que ingresaste) con el cual podras reestablecer tu contraseña</p>
 
 <%= form_for :password do |f| %>
-  <%= f.email_field :email, placeholder: "Direccion de Mail" %>
+  <div class="search">
+    <%= f.email_field :email, placeholder: "Direccion de Mail", class: 'input_search' %>
 
-  <%= f.submit %>
+    <%= f.submit class: 'submit-search' %>
+  </div>
 <% end %>

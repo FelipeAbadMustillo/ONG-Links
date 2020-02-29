@@ -1,16 +1,7 @@
 window.BackButton = createReactClass({
   render: function()
   {
-    link = ""
-    if(this.props.ong)
-    {
-      link = "/organization"
-    }
-    else
-    {
-      link = "/user"
-    }
-
+    link = this.props.ong
     return(
       <div className = "backButton">
         <a href={link}>
