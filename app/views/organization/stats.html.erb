@@ -1,21 +1,14 @@
 <%= react_component 'BackButton', ong: "/organization" %>
-<h2> Tus estadisticas: </h2>
-<p> <%= @ong.nombreOng %> </p>
-<p> Ultimos cinco subscriptores: </p>
+<h1 class="title"> Tus estadisticas: </h1>
+<h2 class="secondary-title"> Ultimos cinco subscriptores: </h2>
 <ul>
   <% @subs.each do |sub| %>
-    <li> <%= link_to sub.nombreUsu, user_path(sub.id) %> </li>
+    <%= react_component 'MinUser', img: sub.ftUsu, name: sub.nombreUsu, surName: sub.apellidoUsu, lvl: sub.exp, key: sub.id %>
   <% end %>
 </ul>
 
-<p> Post con mas enlistados: </p>
-<h2> <%= @post.title %>: </h2>
-<p> <%= @post.descPst %> </p>
-<%= link_to "ver mas...", post_path(@post.id) %>
+<h2 class="secondary-title"> Post con mas enlistados: </h2>
+<%= react_component 'MinPost', data: @post %>
 
-<p> Tus posts activos: </p>
-<% @disp.each do |p| %>
-  <h2> <%= p.title %>: </h2>
-  <p> <%= p.descPst %> </p>
-  <%= link_to "ver mas...", post_path(p.id) %>
-<% end %>
+<h2 class="secondary-title"> Tus posts activos: </h2>
+<%= react_component 'PostList', posts: @disp, owners: false %>

@@ -98,3 +98,12 @@ input
   color: #a133d4;
   font-size: 2em;
 }
+
+.secondary-title
+{
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  color: #882cc9;
+  margin: 0.5em;
+  margin-top: 1.5em;
+}
